@@ -49,12 +49,12 @@ victoria-metrics-agent:
       cpu: 500m
       memory: 600Mi
 
-    persistentVolume:
-      enabled: false  # disables chart-generated PVC
-    extraVolumes:
-      - name: vmagent-storage
-        persistentVolumeClaim:
-          claimName: vm-data-pvc
+  persistentVolume:
+    enabled: false  # disables chart-generated PVC
+  extraVolumes:
+    - name: vmagent-storage
+      persistentVolumeClaim:
+        claimName: vm-data-pvc
 
   config:
     global:
