@@ -21,6 +21,13 @@ grafana:
     pspEnabled: false
     pspUseAppArmor: false
     namespaced: false
+  
+  initChownData:
+    ## If false, data ownership will not be reset at startup
+    ## This allows the prometheus-server to be run with an arbitrary user
+    ##
+    enabled: false
+
   revisionHistoryLimit: 3
   testFramework:
     enabled: false
