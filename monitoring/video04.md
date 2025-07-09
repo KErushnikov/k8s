@@ -33,7 +33,7 @@
 Пример получения метрик конкретной ноды кластера.
 
     curl -H "Authorization: Bearer $TOKEN" \
-    -k https://192.168.218.171:6443/api/v1/nodes/control1.kryukov.local/proxy/metrics | less
+    -k https://192.168.218.171:6443/api/v1/nodes/control1.k.erusnikov.ru/proxy/metrics | less
 
 Основные метрики начинаются с `kubelet_*`. Например: `kubelet_running_pods`
 позволяет узнать общее количество запущенных подов.
@@ -41,7 +41,7 @@
 ### job kubernetes-nodes-cadvisor
 
      curl -H "Authorization: Bearer $TOKEN" \
-     -k https://192.168.218.171:6443/api/v1/nodes/control1.kryukov.local/proxy/metrics/cadvisor | less
+     -k https://192.168.218.171:6443/api/v1/nodes/control1.k.erusnikov.ru/proxy/metrics/cadvisor | less
 
 Основные метрики начинаются с `container_*`. 
 
@@ -71,7 +71,7 @@
 Если подключиться к WEB интерфейсу vmagent. То в списке targets мы увидим что вышеперечисленные jobs уже
 собирают метрики.
 
-    https://vmagent.kryukov.local/targets
+    https://vmagent.k.erusnikov.ru/targets
 
 kubernetes-pods:
 * app="cert-manager"

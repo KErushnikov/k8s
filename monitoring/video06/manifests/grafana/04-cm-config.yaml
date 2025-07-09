@@ -18,8 +18,8 @@ data:
     plugins = /var/lib/grafana/plugins
     provisioning = /etc/grafana/provisioning
     [server]
-    domain = grafana.kryukov.local
-    root_url = https://grafana.kryukov.local
+    domain = grafana.k.erusnikov.ru
+    root_url = https://grafana.k.erusnikov.ru
     [dashboards]
     default_home_dashboard_path = /var/lib/grafana/dashboards/default/main.json
   datasources.yaml: |

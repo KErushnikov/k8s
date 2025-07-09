@@ -58,7 +58,7 @@ ingress:
   path: /
   pathType: Prefix
   hosts:
-    - host: kafdrop.kryukov.local
+    - host: kafdrop.k.erusnikov.ru
       paths:
         - path: /
           pathType: Prefix

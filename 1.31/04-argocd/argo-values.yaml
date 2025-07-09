@@ -16,7 +16,7 @@ configs:
 
   repositories:
     artur-repo:
-      url: https://github.com/BigKAA/youtube
+      url: https://github.com/KErushnikov/k8s
       name: bigkaa
       type: git
 
@@ -36,7 +36,7 @@ server:
   replicas: 1
   certificate:
     enabled: true
-    domain: "argocd.kryukov.local"
+    domain: "argocd.k.erusnikov.ru"
     duration: "9125h"
     renewBefore: "360h"
     issuer:
@@ -59,7 +59,7 @@ server:
       # cert-manager.io/cluster-issuer: "argocd-issuer"
       nginx.ingress.kubernetes.io/ssl-redirect: "false"
     ingressClassName: "system-ingress"
-    hostname: "argocd.kryukov.local"
+    hostname: "argocd.k.erusnikov.ru"
     paths:
       - /
     pathType: Prefix

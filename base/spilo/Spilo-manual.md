@@ -154,7 +154,7 @@ data:
 $ kubectl get storageclasses
 NAME                  PROVISIONER             RECLAIMPOLICY   VOLUMEBINDINGMODE      ALLOWVOLUMEEXPANSION   AGE
 local-path            rancher.io/local-path   Delete          WaitForFirstConsumer   false                  6d23h
-managed-nfs-storage   kryukov.local/nfs       Delete          Immediate              false                  7d21h
+managed-nfs-storage   k.erusnikov.ru/nfs       Delete          Immediate              false                  7d21h
 ```
 
 Я предполагаю, что файлы базы данных будут храниться на локальных дисках нод
@@ -212,9 +212,9 @@ spec:
 Сначала добавим labels на ноды, где предполагается запускать поды spilo.
 
 ```shell
-kubectl label nodes ws2.kryukov.local db=spilo
-kubectl label nodes ws3.kryukov.local db=spilo
-kubectl label nodes ws4.kryukov.local db=spilo
+kubectl label nodes ws2.k.erusnikov.ru db=spilo
+kubectl label nodes ws3.k.erusnikov.ru db=spilo
+kubectl label nodes ws4.k.erusnikov.ru db=spilo
 ```
 
 Добавим affinity в StatefulSet.

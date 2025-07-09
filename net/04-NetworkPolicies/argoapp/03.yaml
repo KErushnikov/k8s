@@ -6,7 +6,7 @@ metadata:
 spec:
   project: default
   source:
-    repoURL: 'https://github.com/BigKAA/youtube'
+    repoURL: 'https://github.com/KErushnikov/k8s'
     path: net/04-NetworkPolicies/manifests
     targetRevision: master
   destination:

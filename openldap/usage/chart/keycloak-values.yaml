@@ -16,10 +16,10 @@ ingress:
   enabled: true
   ingressClassName: "system-ingress"
   pathType: Prefix
-  hostname: keycloak.kryukov.local
+  hostname: keycloak.k.erusnikov.ru
   annotations:
     cert-manager.io/cluster-issuer: dev-ca-issuer
-    cert-manager.io/common-name: keycloak.kryukov.local
+    cert-manager.io/common-name: keycloak.k.erusnikov.ru
     cert-manager.io/duration: 9125h
     cert-manager.io/private-key-algorithm: RSA
     cert-manager.io/private-key-encoding: PKCS8

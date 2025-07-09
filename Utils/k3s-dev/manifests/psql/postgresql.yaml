@@ -182,7 +182,7 @@ metadata:
   name: pgadmin
   annotations:
     cert-manager.io/cluster-issuer: dev-ca-issuer
-    cert-manager.io/common-name: pg.kryukov.local
+    cert-manager.io/common-name: pg.k.erusnikov.ru
     cert-manager.io/subject-organizations: "home dev lab"
     cert-manager.io/subject-countries: "RU"
     cert-manager.io/subject-localities: "Moscow"
@@ -196,7 +196,7 @@ metadata:
 spec:
   ingressClassName: system-ingress
   rules:
-    - host: pg.kryukov.local
+    - host: pg.k.erusnikov.ru
       http:
         paths:
           - pathType: Prefix
@@ -208,5 +208,5 @@ spec:
                   name: http
   tls:
     - hosts:
-      - pg.kryukov.local
+      - pg.k.erusnikov.ru
       secretName: pg-tls

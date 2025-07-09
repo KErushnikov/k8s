@@ -46,7 +46,7 @@ helm uninstall dev-gitlab-runner -n gitlab
 Переходим в директорию, где будут находиться ваши проекты.
 
 ```shell
-git clone http://gitlab.kryukov.local/dev/base-application.git
+git clone http://gitlab.k.erusnikov.ru/dev/base-application.git
 ```
 
 Скопируем в директорию проекта файлы из директории 

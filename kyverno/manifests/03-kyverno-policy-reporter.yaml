@@ -25,7 +25,7 @@ spec:
           ingress:
             enabled: true
             hosts: 
-              - host: policyreporter.kryukov.local
+              - host: policyreporter.k.erusnikov.ru
                 paths:
                 - path: /
                   pathType: ImplementationSpecific

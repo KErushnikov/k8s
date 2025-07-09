@@ -8,7 +8,7 @@ metadata:
 spec:
   project: keycloak
   source:
-    repoURL: 'https://github.com/BigKAA/youtube'
+    repoURL: 'https://github.com/KErushnikov/k8s'
     path: keycloak/manifests-sts
     targetRevision: master
   destination:

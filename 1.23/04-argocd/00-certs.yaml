@@ -30,7 +30,7 @@ spec:
     - server auth
     - client auth
   dnsNames:
-  - argocd.kryukov.local
+  - argocd.k.erusnikov.ru
   issuerRef:
     name: argocd-issuer
     kind: Issuer

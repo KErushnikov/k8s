@@ -51,13 +51,13 @@
 
 - name: Docker certs.d dir
   file:
-    path: /etc/docker/certs.d/starter.kryukov.local
+    path: /etc/docker/certs.d/starter.k.erusnikov.ru
     state: directory
     recurse: yes
 
 - name: Copy CA certificate
   copy:
     src: "{{ ca_data_dir }}/ca.pem"
-    dest: "/etc/docker/certs.d/starter.kryukov.local"
+    dest: "/etc/docker/certs.d/starter.k.erusnikov.ru"
     remote_src: yes
 

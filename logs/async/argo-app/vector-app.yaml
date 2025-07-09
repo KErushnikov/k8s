@@ -12,7 +12,7 @@ spec:
     server: 'https://kubernetes.default.svc'
   source:
     path: logs/async/charts/vector-art
-    repoURL: 'https://github.com/BigKAA/youtube'
+    repoURL: 'https://github.com/KErushnikov/k8s'
     targetRevision: master
     helm:
       valueFiles:

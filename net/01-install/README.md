@@ -88,7 +88,7 @@ cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
 ```shell script
 kubectl get nodes
 NAME                       STATUS     ROLES    AGE     VERSION
-ip-218-161.kryukov.local   NotReady   master   2m32s   v1.19.3
+ip-218-161.k.erusnikov.ru   NotReady   master   2m32s   v1.19.3
 ```
 
 #### Worker нода

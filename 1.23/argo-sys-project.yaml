@@ -15,4 +15,4 @@ spec:
       namespace: '*'
       server: https://kubernetes.default.svc
   sourceRepos:
-    - https://github.com/BigKAA/youtube
+    - https://github.com/KErushnikov/k8s

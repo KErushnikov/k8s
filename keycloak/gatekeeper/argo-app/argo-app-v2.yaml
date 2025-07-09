@@ -8,7 +8,7 @@ metadata:
 spec:
   project: application
   source:
-    repoURL: 'https://github.com/BigKAA/youtube'
+    repoURL: 'https://github.com/KErushnikov/k8s'
     path: keycloak/gatekeeper/manifests-v2
     targetRevision: master
   destination:

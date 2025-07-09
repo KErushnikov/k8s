@@ -2,8 +2,8 @@
 
 Для демонстрации будут использоваться два сервера:
 
-- `rocky1.kryukov.local`
-- `rocky2.kryukov.local`
+- `rocky1.k.erusnikov.ru`
+- `rocky2.k.erusnikov.ru`
   
 На первом сервере в предыдущем видео уже установлен OpenLDAP. Мы только установим пароль администратора
 `cn=Administrators,dc=my-domain,dc=com` в `password`:
@@ -14,7 +14,7 @@ ldapmodify -Q -Y EXTERNAL -f admin_password.ldif
 
 ## Установка второго сервера OpenLdap
 
-На машине `rocky2.kryukov.local` следует установить сервер OpenLDAP, так же, как и в предыдущем видео. Единственно, что не надо делать - добавлять информацию в дерево LDAP. Оно в дальнейшем автоматически будет скопировано с первого мастера.
+На машине `rocky2.k.erusnikov.ru` следует установить сервер OpenLDAP, так же, как и в предыдущем видео. Единственно, что не надо делать - добавлять информацию в дерево LDAP. Оно в дальнейшем автоматически будет скопировано с первого мастера.
 
 ```shell
 wget -q https://repo.symas.com/configs/SOLDAP/rhel9/release26.repo -O /etc/yum.repos.d/soldap-release26.repo
@@ -82,7 +82,7 @@ systemctl enable slapd
 **Перед началом работы обязательно удалите** `dn: cn=monitoring,ou=Groups,dc=my-domain,dc=com` на мастер сервере!
 И, если они есть, другие записи с `objectclass: groupOfNames`. При первоначальной синхронизации, первыми в списке у нас идет группа monitoring. Она так же первой создаётся на слейв сервере. У этой группы есть обязательное поле `member`, в котором должен указываться dn уже существующей записи пользователя. Но на slave сервере такого пользователя еще нет, его dn идет дальше в списке. Поэтому при создании группы возникает ошибка и процесс синхронизации встает колом. *В дальнейшем мы обнаружим ещё много "чудесатого" у OpenLDAP*.
 
-В качестве slave сервера будем использовать OpenLDAP на машине `rocky2.kryukov.local`.
+В качестве slave сервера будем использовать OpenLDAP на машине `rocky2.k.erusnikov.ru`.
 
 Для включения механизма синхронизации нам необходимо включить и настроить модуль syncprov.
 
@@ -112,7 +112,7 @@ ldapadd -Y EXTERNAL -f syncprov_enable.ldif
 
 Добавляем ID сервера. **ID должен быть уникальным у каждого сервера OpenLDAP**.
 
-На сервере `rocky1.kryukov.local`:
+На сервере `rocky1.k.erusnikov.ru`:
 
 Файл `01ldapId.ldif`:
 
@@ -127,7 +127,7 @@ olcServerID: 101
 ldapmodify -Y EXTERNAL -f 01ldapId.ldif
 ```
 
-На сервере `rocky2.kryukov.local`:
+На сервере `rocky2.k.erusnikov.ru`:
 
 Файл `02ldapId.ldif`:
 
@@ -175,7 +175,7 @@ olcAccess: {0}to dn.subtree="dc=my-domain,dc=com" by dn.exact="cn=repluser,dc=my
 ldapmodify -Q -Y EXTERNAL -f repluserrights.ldif
 ```
 
-На slave сервере `rocky2.kryukov.local` добавим конфигурацию модуля syncprov.
+На slave сервере `rocky2.k.erusnikov.ru` добавим конфигурацию модуля syncprov.
 
 Файл `02ldapslave.ldif`:
 
@@ -184,7 +184,7 @@ dn: olcDatabase={1}mdb,cn=config
 changetype: modify
 add: olcSyncRepl
 olcSyncRepl: rid=001
-  provider=ldap://rocky1.kryukov.local:389/
+  provider=ldap://rocky1.k.erusnikov.ru:389/
   bindmethod=simple
   binddn="cn=repluser,dc=my-domain,dc=com"
   credentials=password
@@ -225,7 +225,7 @@ journalctl -u symas-openldap-servers --no-pager
 
 Режим multimaster подразумевает, что (в нашем случае) оба два серевра OpenLDAP могут работать в режиме rw. И в случае изменения данных на любом из серверов, на другой сервер будут реплицированы изменения с сервера на котором произошли изменения.
 
-В нашем случае достаточно на сервере `rocky1.kryukov.local` настроить репликацию данных с сервера `rocky2.kryukov.local`.
+В нашем случае достаточно на сервере `rocky1.k.erusnikov.ru` настроить репликацию данных с сервера `rocky2.k.erusnikov.ru`.
 
 Файл `01ldapslave.ldif`:
 
@@ -234,7 +234,7 @@ dn: olcDatabase={1}mdb,cn=config
 changetype: modify
 add: olcSyncRepl
 olcSyncRepl: rid=001
-  provider=ldap://rocky2.kryukov.local:389/
+  provider=ldap://rocky2.k.erusnikov.ru:389/
   bindmethod=simple
   binddn="cn=repluser,dc=my-domain,dc=com"
   credentials=password
@@ -264,7 +264,7 @@ dn: olcDatabase={1}mdb,cn=config
 changetype: modify
 add: olcSyncRepl
 olcSyncRepl: rid=001
-  provider=ldap://rocky1.kryukov.local:389/
+  provider=ldap://rocky1.k.erusnikov.ru:389/
   bindmethod=simple
   binddn="cn=repluser,dc=my-domain,dc=com"
   credentials=password
@@ -275,7 +275,7 @@ olcSyncRepl: rid=001
   retry="60 +"
   interval=00:00:05:00
 olcSyncRepl: rid=002
-  provider=ldap://rocky2.kryukov.local:389/
+  provider=ldap://rocky2.k.erusnikov.ru:389/
   bindmethod=simple
   binddn="cn=repluser,dc=my-domain,dc=com"
   credentials=password

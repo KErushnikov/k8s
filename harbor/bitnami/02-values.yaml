@@ -32,8 +32,8 @@ ingress:
   enabled: true
 
   hosts:
-    core: harbor.kryukov.local
-    notary: notary.kryukov.local
+    core: harbor.k.erusnikov.ru
+    notary: notary.k.erusnikov.ru
   annotations:
     ingress.kubernetes.io/ssl-redirect: 'true'
     ingress.kubernetes.io/proxy-body-size: '0'
@@ -41,7 +41,7 @@ ingress:
     nginx.ingress.kubernetes.io/proxy-body-size: '0'
     kubernetes.io/ingress.class: 'system-ingress'
 
-externalURL: http://harbor.kryukov.local
+externalURL: http://harbor.k.erusnikov.ru
 
 persistence:
   enabled: true

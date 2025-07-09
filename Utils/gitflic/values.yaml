@@ -171,7 +171,7 @@ mailRelay:
   # global parameters
   sender:
     name: "Gitflic Admin"
-    email: "admin@gitflic.kryukov.local"
+    email: "admin@gitflic.k.erusnikov.ru"
   mailDebug: false
   # external mail relay
   external:
@@ -185,9 +185,9 @@ mailRelay:
   # TODO: добавить работу с Secrets
   # built in mail relay parameters
   postfix:
-    smtpHeloName: "gitflic.kryukov.local"
-    myOrigin: "gitflic.kryukov.local"
-    myHostname: "gitflic.kryukov.local"
+    smtpHeloName: "gitflic.k.erusnikov.ru"
+    myOrigin: "gitflic.k.erusnikov.ru"
+    myHostname: "gitflic.k.erusnikov.ru"
     kuberNetwork: "10.233.0.0/16"
   enableNetworkPolicy: true
   image: "bigkaa/mail-relay"

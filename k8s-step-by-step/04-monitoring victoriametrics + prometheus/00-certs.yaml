@@ -33,11 +33,11 @@ spec:
     - server auth
     - client auth
   dnsNames:
-  - kryukov.local
-  - mon.kryukov.local
-  - grafana.kryukov.local
-  - prom.kryukov.local
-  - netdata.kryukov.local
+  - k.erusnikov.ru
+  - mon.k.erusnikov.ru
+  - grafana.k.erusnikov.ru
+  - prom.k.erusnikov.ru
+  - netdata.k.erusnikov.ru
   ipAddresses:
   - 192.168.218.174
   - 192.168.218.175

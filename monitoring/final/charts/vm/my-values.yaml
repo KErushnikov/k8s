@@ -25,13 +25,13 @@ victoria-metrics-single:
       annotations:
         certmanager.k8s.io/issuer: monitoring-issuer
       hosts:
-        - name: "vm.kryukov.local"
+        - name: "vm.k.erusnikov.ru"
           path: /
           port: 9090
       tls:
         - secretName: "mon-tls"
           hosts:
-            - vm.kryukov.local
+            - vm.k.erusnikov.ru
       ingressClassName: system-ingress
     statefulSet:
       enabled: true

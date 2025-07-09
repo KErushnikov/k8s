@@ -24,7 +24,7 @@ version: 0.1.0
 appVersion: "1.19.9.1-centos-rpm"
 kubeVersion: ">= 1.19.0"
 
-home: https://github.com/BigKAA/youtube/tree/master/helm
+home: https://github.com/KErushnikov/k8s/tree/master/helm
 maintainers:
   - name: Artur Kryukov
     email: artur@kryukov.biz

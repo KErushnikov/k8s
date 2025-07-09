@@ -41,13 +41,13 @@ docker run -it --rm -v $(pwd):/workspace ghcr.io/oras-project/oras:v1.2.0 help
 
 ```shell
 export CL_PASS=password
-echo $CL_PASS | oras push -u admin --password-stdin --ca-file ca.crt registry-cl.kryukov.local/library/files:1.0.0 ./html/:text/html
+echo $CL_PASS | oras push -u admin --password-stdin --ca-file ca.crt registry-cl.k.erusnikov.ru/library/files:1.0.0 ./html/:text/html
 ```
 
 Проверяем:
 
 ```shell
-oras manifest fetch --ca-file ca.crt registry-cl.kryukov.local/library/files:1.0.0 --pretty
+oras manifest fetch --ca-file ca.crt registry-cl.k.erusnikov.ru/library/files:1.0.0 --pretty
 ```
 
 ## Пример использования volume image
@@ -76,7 +76,7 @@ spec:
       volumes:
       - name: nginx-persistent-storage
         image: 
-          reference: registry-cl.kryukov.local/library/files:1.0.0
+          reference: registry-cl.k.erusnikov.ru/library/files:1.0.0
           pullPolicy: IfNotPresent
       containers:
       - name: nginx

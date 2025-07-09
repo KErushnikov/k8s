@@ -8,8 +8,8 @@
 ```yaml
   grafana.ini:
     server:
-      domain: grafana.kryukov.local
-      root_url: https://grafana.kryukov.local
+      domain: grafana.k.erusnikov.ru
+      root_url: https://grafana.k.erusnikov.ru
 ```
 
 ## Автоматическое добавление dashboards

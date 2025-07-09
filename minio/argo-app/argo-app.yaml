@@ -8,7 +8,7 @@ metadata:
 spec:
   project: minio
   source:
-    repoURL: 'https://github.com/BigKAA/youtube'
+    repoURL: 'https://github.com/KErushnikov/k8s'
     path: minio/manifests
     targetRevision: master
   destination:

@@ -7,13 +7,13 @@ alertmanager:
     annotations:
       certmanager.k8s.io/cluster-issuer: monitoring-issuer
     hosts:
-      - host: am.kryukov.local
+      - host: am.k.erusnikov.ru
         paths:
           - path: /
             pathType: Prefix
     tls:
       - hosts:
-          - am.kryukov.local
+          - am.k.erusnikov.ru
         secretName: am-tls
   resources:
     limits:

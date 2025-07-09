@@ -8,7 +8,7 @@ metadata:
     kubernetes.io/ingress.class: "system-ingress"
 spec:
   rules:
-    - host: "grafana.kryukov.local"
+    - host: "grafana.k.erusnikov.ru"
       http:
         paths:
           - path: /

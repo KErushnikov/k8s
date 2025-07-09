@@ -12,7 +12,7 @@ spec:
     server: 'https://kubernetes.default.svc'
   source:
     path: 1.23/charts/01-ksm-and-node-exporter
-    repoURL: 'https://github.com/BigKAA/youtube'
+    repoURL: 'https://github.com/KErushnikov/k8s'
     targetRevision: HEAD
     helm:
       valueFiles:

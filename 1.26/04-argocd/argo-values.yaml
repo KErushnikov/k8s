@@ -16,7 +16,7 @@ configs:
 
   repositories:
     artur-repo:
-      url: https://github.com/BigKAA/youtube
+      url: https://github.com/KErushnikov/k8s
       name: bigkaa
       type: git
 
@@ -42,13 +42,13 @@ server:
       nginx.ingress.kubernetes.io/ssl-redirect: "false"
     ingressClassName: "system-ingress"
     hosts:
-      - argocd.kryukov.local
+      - argocd.k.erusnikov.ru
     paths:
       - /
     pathType: Prefix
     tls:
       - hosts:
-          - argocd.kryukov.local
+          - argocd.k.erusnikov.ru
         secretName: argocd-tls
 
     https: true

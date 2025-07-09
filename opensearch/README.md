@@ -106,7 +106,7 @@ kubectl delete -f manifests
 ### Проверка работоспособности
 
 ```shell
-curl -XGET  https://esapi.kryukov.local/ -u 'admin:password' --insecure
+curl -XGET  https://esapi.k.erusnikov.ru/ -u 'admin:password' --insecure
 ```
 
 ## Внутренности

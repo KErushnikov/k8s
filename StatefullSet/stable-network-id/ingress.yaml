@@ -5,7 +5,7 @@ metadata:
 spec:
   ingressClassName: system-ingress
   rules:
-  - host: app.kryukov.local
+  - host: app.k.erusnikov.ru
     http:
       paths:
       - pathType: Prefix

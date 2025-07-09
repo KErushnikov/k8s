@@ -55,7 +55,7 @@ global:
       enabled: false
 
   hosts:
-    domain: kryukov.local
+    domain: k.erusnikov.ru
     https: false
     externalIP: 192.168.218.180
 
@@ -94,7 +94,7 @@ global:
     tls: false
     starttls_auto: false
     openssl_verify_mode: 'none'
-    domain: "git.kryukov.local"
+    domain: "git.k.erusnikov.ru"
     address: mail-relay
     port: 25
     authentication: "none"
@@ -102,8 +102,8 @@ global:
       secret: 'fake-mail-password'
       key: 'password'
   email:
-    from: "noreply@gitlab.kryukov.local"
-    display_name: "GitLab kryukov.local"
+    from: "noreply@gitlab.k.erusnikov.ru"
+    display_name: "GitLab k.erusnikov.ru"
 
 # https://docs.gitlab.com/charts/advanced/external-object-storage/#backups
 gitlab:

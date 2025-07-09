@@ -6,14 +6,14 @@ karma:
     annotations:
       certmanager.k8s.io/cluster-issuer: monitoring-issuer
     hosts:
-      - karma.kryukov.local
+      - karma.k.erusnikov.ru
     ingressClassName: "system-ingress"
     path: /
     pathType: Prefix
     tls:
     - secretName: karma-tls
       hosts:
-      - karma.kryukov.local
+      - karma.k.erusnikov.ru
   resources:
     limits:
       cpu: 100m

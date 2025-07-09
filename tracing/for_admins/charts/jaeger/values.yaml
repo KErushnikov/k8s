@@ -145,7 +145,7 @@ query:
     enabled: true
     # Used to create an Ingress record.
     hosts:
-      - jaeger.kryukov.local
+      - jaeger.k.erusnikov.ru
     ingressClassName: system-ingress
   resources:
     limits:

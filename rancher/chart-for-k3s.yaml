@@ -10,6 +10,6 @@ spec:
   repo: "https://releases.rancher.com/server-charts/stable"
   targetNamespace: cattle-system
   set:
-    hostname: "rancher.kryukov.local"
+    hostname: "rancher.k.erusnikov.ru"
     bootstrapPassword: admin
     replicas: 1

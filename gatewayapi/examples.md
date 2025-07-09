@@ -118,7 +118,7 @@ metadata:
     nginx.ingress.kubernetes.io/ssl-redirect: "true"
 spec:
   rules:
-  - host: testapp.kryukov.local
+  - host: testapp.k.erusnikov.ru
     http:
       paths:
       - pathType: Prefix
@@ -130,7 +130,7 @@ spec:
              name: http
   tls:
   - hosts:
-    - testapp.kryukov.local
+    - testapp.k.erusnikov.ru
     secretName: testapp-tls
 ```
 
@@ -162,7 +162,7 @@ spec:
   - name: testapp-gw
     sectionName: http
   hostnames:
-  - testapp.kryukov.local
+  - testapp.k.erusnikov.ru
   rules:
   - filters:
     - type: RequestRedirect
@@ -180,7 +180,7 @@ spec:
   - name: testapp-gw
     sectionName: https
   hostnames:
-  - testapp.kryukov.local
+  - testapp.k.erusnikov.ru
   rules:
   - backendRefs:
     - name: testapp-one
@@ -194,7 +194,7 @@ kubectl apply -f examples/04-http-https-route.yaml
 Проверяем работу пересылки:
 
 ```shell
-curl -vLk http://testapp.kryukov.local
+curl -vLk http://testapp.k.erusnikov.ru
 ```
 
 ### Path redirect
@@ -212,7 +212,7 @@ spec:
   - name: testapp-gw
     sectionName: https
   hostnames:
-  - testapp.kryukov.local
+  - testapp.k.erusnikov.ru
   rules:
   - matches:
       - path:
@@ -236,7 +236,7 @@ kubectl apply -f examples/05-path-redirect.yaml
 Пошлем запрос:
 
 ```shell
-curl -vLk https://testapp.kryukov.local/login
+curl -vLk https://testapp.k.erusnikov.ru/login
 ```
 
 ## Rewrites
@@ -262,7 +262,7 @@ spec:
   - name: testapp-gw
     sectionName: https
   hostnames:
-  - testapp.kryukov.local
+  - testapp.k.erusnikov.ru
   rules:
   - matches:
       - path:
@@ -271,7 +271,7 @@ spec:
     filters:
       - type: URLRewrite
         urlRewrite:
-          # hostname: anotherapp.kryukov.local
+          # hostname: anotherapp.k.erusnikov.ru
           path:
             # type: ReplaceFullPath
             type: ReplacePrefixMatch
@@ -290,7 +290,7 @@ kubectl apply -f examples/06-rewrite.yaml
 Пошлем запрос:
 
 ```shell
-curl -vLk https://testapp.kryukov.local/login/22/12
+curl -vLk https://testapp.k.erusnikov.ru/login/22/12
 ```
 
 Удалим HTTPRoutes:
@@ -328,7 +328,7 @@ kubectl apply -f examples/07-header-modifiers.yaml
 Пошлем запрос:
 
 ```shell
-curl -vLk https://testapp.kryukov.local/
+curl -vLk https://testapp.k.erusnikov.ru/
 ```
 
 Удалим правила:
@@ -371,7 +371,7 @@ spec:
   - name: testapp-gw
     sectionName: https
   hostnames:
-    - testapp.kryukov.local
+    - testapp.k.erusnikov.ru
   rules:
     - backendRefs:
         - name: testapp-one
@@ -394,13 +394,13 @@ kubectl apply -f examples/08-canary.yaml
 Доступ к старой версии приложения:
 
 ```shell
-curl -vk https://testapp.kryukov.local/
+curl -vk https://testapp.k.erusnikov.ru/
 ```
 
 Доступ к новой версии приложения:
 
 ```shell
-curl -vk -H "app-version: new" https://testapp.kryukov.local/
+curl -vk -H "app-version: new" https://testapp.k.erusnikov.ru/
 ```
 
 Удалим правила:
@@ -426,7 +426,7 @@ spec:
     - name: testapp-gw
       sectionName: https
   hostnames:
-    - testapp.kryukov.local
+    - testapp.k.erusnikov.ru
   rules:
     - backendRefs:
       - name: testapp-one
@@ -444,5 +444,5 @@ kubectl apply -f examples/09-blue-green.yaml
 Посылаем запросы минимум 10-ть раз:
 
 ```shell
-curl -vk https://testapp.kryukov.local/
+curl -vk https://testapp.k.erusnikov.ru/
 ```

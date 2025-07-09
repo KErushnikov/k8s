@@ -9,10 +9,10 @@ metadata:
 spec:
   tls:
     - hosts:
-        - application.kryukov.local
+        - application.k.erusnikov.ru
       secretName: app-tls
   rules:
-    - host: "application.kryukov.local"
+    - host: "application.k.erusnikov.ru"
       http:
         paths:
           - pathType: Prefix

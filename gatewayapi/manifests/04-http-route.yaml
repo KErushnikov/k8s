@@ -10,7 +10,7 @@ spec:
       sectionName: web
       kind: Gateway
   hostnames:
-    - "sample.kryukov.local"
+    - "sample.k.erusnikov.ru"
   rules:
     - backendRefs:
         - kind: Service

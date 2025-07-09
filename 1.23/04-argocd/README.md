@@ -67,7 +67,7 @@ data:
 
 Подключимся к argocd:
 
-    argocd login argocd.kryukov.local:443 --grpc-web
+    argocd login argocd.k.erusnikov.ru:443 --grpc-web
 
 Пользователь admin. Пароль мы получили на предыдущем шаге.
 
@@ -91,4 +91,4 @@ data:
     *** Confirm new password:
     Password updated
 
-Заходим в WEB интерфейс https://argocd.kryukov.local
+Заходим в WEB интерфейс https://argocd.k.erusnikov.ru

@@ -156,7 +156,7 @@ helm install rancher rancher-stable/rancher \
   --set ingress.tls.source=rancher \
   --set ingress.ingressClassName=system-ingress \
   --set priorityClassName=high-priority \
-  --set hostname="rancher.kryukov.local" \
+  --set hostname="rancher.k.erusnikov.ru" \
   --set bootstrapPassword=admin
 ```
 
@@ -185,7 +185,7 @@ helm install rancher ./rancher \
   --set ingress.tls.source=rancher \
   --set ingress.ingressClassName=system-ingress \
   --set priorityClassName=high-priority \
-  --set hostname="rancher.kryukov.local" \
+  --set hostname="rancher.k.erusnikov.ru" \
   --set bootstrapPassword=admin
 ```
 

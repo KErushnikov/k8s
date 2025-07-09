@@ -357,7 +357,7 @@ opensearch:
       # kubernetes.io/tls-acme: "true"
     path: /
     hosts:
-      - es.kryukov.local
+      - es.k.erusnikov.ru
     tls: []
     #  - secretName: chart-example-tls
     #    hosts:
@@ -495,7 +495,7 @@ opensearch-dashboards:
       # kubernetes.io/tls-acme: "true"
     ingressClassName: "system-ingress"
     hosts:
-      - host: kibana.kryukov.local
+      - host: kibana.k.erusnikov.ru
         paths:
           - path: /
             backend:

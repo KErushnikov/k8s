@@ -8,7 +8,7 @@ metadata:
     kubernetes.io/ingress.class: "system-ingress"
 spec:
   rules:
-    - host: "harbor.kryukov.local"
+    - host: "harbor.k.erusnikov.ru"
       http:
         paths:
           - path: /
@@ -63,7 +63,7 @@ metadata:
     kubernetes.io/ingress.class: "system-ingress"
 spec:
   rules:
-    - host: "notary.kryukov.local"
+    - host: "notary.k.erusnikov.ru"
       http:
         paths:
           - path: /

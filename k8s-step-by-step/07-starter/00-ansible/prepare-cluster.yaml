@@ -19,14 +19,14 @@
 
   - name: Docker certs.d dir
     file:
-      path: /etc/containerd/certs.d/starter.kryukov.local
+      path: /etc/containerd/certs.d/starter.k.erusnikov.ru
       state: directory
       recurse: yes
 
   - name: Copy CA certificate
     copy:
       src: "/tmp/ca.pem"
-      dest: "/etc/containerd/certs.d/starter.kryukov.local"
+      dest: "/etc/containerd/certs.d/starter.k.erusnikov.ru"
 
   handlers:
   - name: Update ca trust

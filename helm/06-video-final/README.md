@@ -25,7 +25,7 @@
 Начнём с простого, добавим дополнительную информацию в Chart.yaml.
 
 ```yaml
-home: https://github.com/BigKAA/youtube/tree/master/helm
+home: https://github.com/KErushnikov/k8s/tree/master/helm
 maintainers:
   - name: Artur Kryukov
     email: artur@kryukov.biz

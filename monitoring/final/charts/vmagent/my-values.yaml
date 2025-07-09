@@ -23,13 +23,13 @@ victoria-metrics-agent:
 
     extraLabels: { }
     hosts:
-      - name: vmagent.kryukov.local
+      - name: vmagent.k.erusnikov.ru
         path: /
         port: http
     tls:
       - secretName: "vmagent-tls"
         hosts:
-          - vmagent.kryukov.local
+          - vmagent.k.erusnikov.ru
     pathType: Prefix
     ingressClassName: system-ingress
 

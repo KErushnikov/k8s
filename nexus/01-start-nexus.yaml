@@ -117,7 +117,7 @@ metadata:
     section: tools
 spec:
   rules:
-    - host: nexus.kryukov.local
+    - host: nexus.k.erusnikov.ru
       http:
         paths:
           - backend:

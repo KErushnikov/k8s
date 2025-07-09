@@ -35,7 +35,7 @@ elasticsearch:
   ingress:
     enabled: true
     pathType: Prefix
-    hostname: es.kryukov.local
+    hostname: es.k.erusnikov.ru
     path: /
     ingressClassName: "system-ingress"
   master:
@@ -184,5 +184,5 @@ elasticsearch:
     ingress:
       enabled: true
       pathType: Prefix
-      hostname: kibana.kryukov.local
+      hostname: kibana.k.erusnikov.ru
       path: /

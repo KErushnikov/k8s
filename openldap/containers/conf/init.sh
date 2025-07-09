@@ -95,7 +95,7 @@ dn: olcDatabase={1}hdb,cn=config
 changetype: modify
 add: olcSyncRepl
 olcSyncRepl: rid=001
-  provider=ldap://rocky2.kryukov.local:10389/
+  provider=ldap://rocky2.k.erusnikov.ru:10389/
   bindmethod=simple
   binddn="cn=repluser,dc=my-domain,dc=com"
   credentials=password
@@ -127,7 +127,7 @@ dn: olcDatabase={1}hdb,cn=config
 changetype: modify
 add: olcSyncRepl
 olcSyncRepl: rid=001
-  provider=ldap://rocky1.kryukov.local:10389/
+  provider=ldap://rocky1.k.erusnikov.ru:10389/
   bindmethod=simple
   binddn="cn=repluser,dc=my-domain,dc=com"
   credentials=password

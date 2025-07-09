@@ -14,7 +14,7 @@ _В моём кластере все PV размещаются на nfs диск
 ## Opensearch
 
 В нашем примере opensearch - это просто база данных. Про установку кластера opensearch было отдельное видео.
-Поэтому просто даю [ссылку на него](https://github.com/BigKAA/youtube/tree/master/opensearch).
+Поэтому просто даю [ссылку на него](https://github.com/KErushnikov/k8s/tree/master/opensearch).
 
 Обратите внимание на `dnsNames` в [сертификате](manifests/opensearch/certs.yaml), который будет выписан для opensearch.
 Там должно быть имя сервиса.
@@ -22,8 +22,8 @@ _В моём кластере все PV размещаются на nfs диск
 ```yaml
   dnsNames:
     - localhost
-    - esapi.kryukov.local
-    - kibana.kryukov.local
+    - esapi.k.erusnikov.ru
+    - kibana.k.erusnikov.ru
     - opensearch-cluster-master.es.svc
     - opensearch-cluster-master.es.cluster.local
 ```
@@ -63,7 +63,7 @@ helm install dashboard opensearch/opensearch-dashboards -f charts/opensearch/val
 В итоге получаем следующие точки доступа к кластеру opensearch:
 
 * https://opensearch-cluster-master.es.svc:9200 - сервис внутри кластера kubernetes, для подключения к API opensearch.
-* https://kibana.kryukov.local/ - доступ к dashboard. Пользователь `admin` пароль `password`.
+* https://kibana.k.erusnikov.ru/ - доступ к dashboard. Пользователь `admin` пароль `password`.
 
 ## Jaeger
 
@@ -209,4 +209,4 @@ kubectl -n ingress-nginx get pods
 kubectl apply -f manifests/applications
 ```
 
-Дальше смотрим трейсы: http://application.kryukov.local
+Дальше смотрим трейсы: http://application.k.erusnikov.ru

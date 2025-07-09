@@ -9,7 +9,7 @@ spec:
     server: 'https://kubernetes.default.svc'
   source:
     path: 1.23/05-postgresql/pgadmin/manifestst
-    repoURL: 'https://github.com/BigKAA/youtube'
+    repoURL: 'https://github.com/KErushnikov/k8s'
     targetRevision: HEAD
   project: system
   syncPolicy:

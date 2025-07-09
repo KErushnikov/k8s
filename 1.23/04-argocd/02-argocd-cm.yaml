@@ -7,11 +7,11 @@ metadata:
     app.kubernetes.io/name: argocd-cm
     app.kubernetes.io/part-of: argocd
 data:
-  url: https://argocd.kryukov.local
+  url: https://argocd.k.erusnikov.ru
 
   accounts.artur: apiKey, login
   accounts.artur.enabled: "true"
 
   repositories: |
     - type: git
-      url: https://github.com/BigKAA/youtube
+      url: https://github.com/KErushnikov/k8s

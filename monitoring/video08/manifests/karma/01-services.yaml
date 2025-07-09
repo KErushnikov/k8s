@@ -25,9 +25,9 @@ spec:
   tls:
   - secretName: karma-tls
     hosts:
-      - karma.kryukov.local
+      - karma.k.erusnikov.ru
   rules:
-    - host: "karma.kryukov.local"
+    - host: "karma.k.erusnikov.ru"
       http:
         paths:
           - path: /

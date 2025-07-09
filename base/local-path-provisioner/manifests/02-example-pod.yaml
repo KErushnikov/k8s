@@ -15,7 +15,7 @@ spec:
     ports:
     - containerPort: 80
   nodeSelector:
-    kubernetes.io/hostname: ws1.kryukov.local
+    kubernetes.io/hostname: ws1.k.erusnikov.ru
   volumes:
   - name: volv
     persistentVolumeClaim:

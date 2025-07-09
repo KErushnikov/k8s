@@ -6,7 +6,7 @@ metadata:
 spec:
   ingressClassName: system-ingress
   rules:
-    - host: "semaphore.kryukov.local"
+    - host: "semaphore.k.erusnikov.ru"
       http:
         paths:
           - pathType: Prefix

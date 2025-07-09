@@ -147,6 +147,6 @@ kubectl apply -f manifest-envoy/05-https-route.yaml
 Проверяем доступность нашего приложения через кластерный IP:
 
 ```shell
-curl -H "Host: sample.kryukov.local" http://192.168.218.180
-curl -kH "Host: sample.kryukov.local" https://192.168.218.180
+curl -H "Host: sample.k.erusnikov.ru" http://192.168.218.180
+curl -kH "Host: sample.k.erusnikov.ru" https://192.168.218.180
 ```

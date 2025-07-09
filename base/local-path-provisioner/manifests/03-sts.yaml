@@ -50,8 +50,8 @@ spec:
                   - key: kubernetes.io/hostname
                     operator: In
                     values:
-                      - ws3.kryukov.local
-                      - ws4.kryukov.local
+                      - ws3.k.erusnikov.ru
+                      - ws4.k.erusnikov.ru
         podAntiAffinity:
           requiredDuringSchedulingIgnoredDuringExecution:
             - labelSelector:

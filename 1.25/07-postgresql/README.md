@@ -11,4 +11,4 @@ kubectl -n postgresql apply -f postgresql/manifests
 kubectl -n postgresql apply -f pgadmin/manifests
 ```
 
-Оба приложения приземляются на ноду db1.kryukov.local
+Оба приложения приземляются на ноду db1.k.erusnikov.ru

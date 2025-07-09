@@ -11,9 +11,9 @@ spec:
   ingressClassName: system-ingress
   tls:
     - hosts:
-        - dash.kryukov.local
+        - dash.k.erusnikov.ru
   rules:
-    - host: dash.kryukov.local
+    - host: dash.k.erusnikov.ru
       http:
         paths:
           - pathType: Prefix
@@ -24,7 +24,7 @@ spec:
                 port:
                   number: 443
 
-#    - host: dash.kryukov.local
+#    - host: dash.k.erusnikov.ru
 #      http:
 #        paths:
 #          - pathType: Prefix

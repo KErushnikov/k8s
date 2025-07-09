@@ -13,7 +13,7 @@ metadata:
 spec:
   ingressClassName: system-ingress
   rules:
-  - host: longhorn.kryukov.local
+  - host: longhorn.k.erusnikov.ru
     http:
       paths:
       - pathType: Prefix

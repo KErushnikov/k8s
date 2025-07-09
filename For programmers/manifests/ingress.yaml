@@ -5,7 +5,7 @@ metadata:
   name: sample-go-prog
 spec:
   rules:
-  - host: www.kryukov.local
+  - host: www.k.erusnikov.ru
     http:
       paths:
       - pathType: Prefix

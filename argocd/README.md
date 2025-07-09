@@ -60,10 +60,10 @@ Namespace cert-manager создаётся автоматически.
 
 ## Пароль админа
 
-Добавим в /etc/hosts имя argocd.kryukov.local
+Добавим в /etc/hosts имя argocd.k.erusnikov.ru
 
     # kubectl -n argocd get secret argocd-initial-admin-secret -o jsonpath="{.data.password}" | base64 -d ; echo
-    # argocd login argocd.kryukov.local:31443 --grpc-web
+    # argocd login argocd.k.erusnikov.ru:31443 --grpc-web
     # argocd account update-password --grpc-web
 
 ## Добавление пользователя
@@ -88,12 +88,12 @@ Namespace cert-manager создаётся автоматически.
 
 Логинимся новым пользователем в систему
 
-    # argocd login argocd.kryukov.local:31443 --grpc-web
+    # argocd login argocd.k.erusnikov.ru:31443 --grpc-web
     # argocd cluster list
 
 Заходим в WEB интерфейс
 
-    https://argocd.kryukov.local:31443/
+    https://argocd.k.erusnikov.ru:31443/
 
 ## Ссылка на видео.
 

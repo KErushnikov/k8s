@@ -244,18 +244,18 @@ global:
 
 #### DNS имена
 
-Все сервисы, предоставляемы GitLab будут в домене `kryukov.local`. Для того, что бы
+Все сервисы, предоставляемы GitLab будут в домене `k.erusnikov.ru`. Для того, что бы
 GitLab работал нормально, вы должны предусмотреть преобразование имён для машин:
 
-* gitlab.kryukov.local
-* kas.kryukov.local
+* gitlab.k.erusnikov.ru
+* kas.k.erusnikov.ru
 
 И других сервисов, если вы их собираетесь включить.
 
 ```yaml
 global:
   hosts:
-    domain: kryukov.local
+    domain: k.erusnikov.ru
     https: false
     externalIP: 192.168.218.180
 ```
@@ -282,7 +282,7 @@ stringData:
   connection: |
     provider: AWS
     region: us-east-1
-    host: minio.kryukov.local
+    host: minio.k.erusnikov.ru
     endpoint: http://gitlab-minio:9000
     path_style: true
     aws_access_key_id: admin 
@@ -387,7 +387,7 @@ global:
     tls: false
     starttls_auto: false
     openssl_verify_mode: 'none'
-    domain: "git.kryukov.local"
+    domain: "git.k.erusnikov.ru"
     address: mail-relay
     port: 25
     # Говорим, что аутентификация не нужна. Главное, что чарт sidekiq написан правильно. Он поймет, что мы хотим.
@@ -397,8 +397,8 @@ global:
       secret: 'fake-mail-password'
       key: 'password'
   email:
-    from: "noreply@gitlab.kryukov.local"
-    display_name: "GitLab kryukov.local"
+    from: "noreply@gitlab.k.erusnikov.ru"
+    display_name: "GitLab k.erusnikov.ru"
 ```
 
 ## После установки

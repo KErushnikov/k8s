@@ -10,7 +10,7 @@ spec:
   sourceRepos:
   - 'https://charts.bitnami.com/bitnami'
   - 'https://helm.goharbor.io'
-  - 'https://github.com/BigKAA/youtube'
+  - 'https://github.com/KErushnikov/k8s'
   destinations:
   - server: https://kubernetes.default.svc
     namespace: 'system-harbor'

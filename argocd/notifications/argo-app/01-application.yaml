@@ -10,7 +10,7 @@ metadata:
 spec:
   project: application
   source:
-    repoURL: 'https://github.com/BigKAA/youtube'
+    repoURL: 'https://github.com/KErushnikov/k8s'
     path: argocd/notifications/manifests/app
     targetRevision: master
   destination:

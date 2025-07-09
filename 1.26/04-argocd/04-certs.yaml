@@ -67,7 +67,7 @@ spec:
     - server auth
     - client auth
   dnsNames:
-  - argocd.kryukov.local
+  - argocd.k.erusnikov.ru
   ipAddresses:
     - 192.168.218.181
   issuerRef:

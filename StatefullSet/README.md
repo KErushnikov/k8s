@@ -69,7 +69,7 @@ metadata:
 spec:
   ingressClassName: system-ingress
   rules:
-  - host: app0.kryukov.local
+  - host: app0.k.erusnikov.ru
     http:
       paths:
         - pathType: Prefix
@@ -79,7 +79,7 @@ spec:
               name: application-0.application-headless
               port:
                 name: http
-  - host: app1.kryukov.local
+  - host: app1.k.erusnikov.ru
     http:
       paths:
         - pathType: Prefix
@@ -144,7 +144,7 @@ metadata:
 spec:
   ingressClassName: system-ingress
   rules:
-  - host: app0.kryukov.local
+  - host: app0.k.erusnikov.ru
     http:
       paths:
         - pathType: Prefix
@@ -154,7 +154,7 @@ spec:
               name: app0
               port:
                 name: http
-  - host: app1.kryukov.local
+  - host: app1.k.erusnikov.ru
     http:
       paths:
         - pathType: Prefix

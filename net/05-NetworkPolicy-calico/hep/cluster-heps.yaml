@@ -8,7 +8,7 @@ metadata:
     node-role: control
 spec:
   interfaceName: ens160
-  node: control1.kryukov.local
+  node: control1.k.erusnikov.ru
   expectedIPs:
     - 192.168.218.171
 ---
@@ -21,7 +21,7 @@ metadata:
     node-role: ws
 spec:
   interfaceName: ens160
-  node: ws1.kryukov.local
+  node: ws1.k.erusnikov.ru
   expectedIPs:
     - 192.168.218.174
 ---
@@ -34,7 +34,7 @@ metadata:
     node-role: ws
 spec:
   interfaceName: ens160
-  node: ws2.kryukov.local
+  node: ws2.k.erusnikov.ru
   expectedIPs:
     - 192.168.218.175
 ---
@@ -47,7 +47,7 @@ metadata:
     node-role: ws
 spec:
   interfaceName: ens160
-  node: ws3.kryukov.local
+  node: ws3.k.erusnikov.ru
   expectedIPs:
     - 192.168.218.176
 ---
@@ -60,6 +60,6 @@ metadata:
     node-role: ws
 spec:
   interfaceName: ens160
-  node: ws4.kryukov.local
+  node: ws4.k.erusnikov.ru
   expectedIPs:
     - 192.168.218.177

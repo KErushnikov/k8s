@@ -90,7 +90,7 @@ vault write auth/kubernetes/role/argocd \
 
 ## Настройка ArgoCD
 
-В моем случае ArgoCD уже работает. Он был установлен при помощи Helm chart. Обычно это происходит [как то так](https://github.com/BigKAA/youtube/tree/master/1.31/04-argocd).
+В моем случае ArgoCD уже работает. Он был установлен при помощи Helm chart. Обычно это происходит [как то так](https://github.com/KErushnikov/k8s/tree/master/1.31/04-argocd).
 
 Для работы с vault, ArgoCD будет использовать дополнительное приложение: [Argo CD Vault Plugin](https://argocd-vault-plugin.readthedocs.io/en/stable/).
 

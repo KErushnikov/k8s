@@ -10,7 +10,7 @@ Helm chart для деплоя кластера PostgreSQL с использов
 * Telegramm: https://t.me/arturkryukov
 * Rutube: https://rutube.ru/channel/23474256/
 
-[Исходные коды чарта](https://github.com/BigKAA/youtube/tree/master/base/spilo/charts/spilo-art).
+[Исходные коды чарта](https://github.com/KErushnikov/k8s/tree/master/base/spilo/charts/spilo-art).
 
 **Важно понимать**, что это demo chart. Он может содержать/содержит различные обидные ошибки. Применение его в продакшн 
 среде только на свой страх и риск. Автор никакой ответственности за использование этого чарта не несёт. 

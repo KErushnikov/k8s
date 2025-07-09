@@ -16,13 +16,13 @@
 
     # kubectl get nodes
     NAME                     STATUS   ROLES           AGE   VERSION
-    control1.kryukov.local   Ready    control-plane   36m   v1.24.6
-    control2.kryukov.local   Ready    control-plane   35m   v1.24.6
-    control3.kryukov.local   Ready    control-plane   36m   v1.24.6
-    db1.kryukov.local        Ready    <none>          35m   v1.24.6
-    worker1.kryukov.local    Ready    <none>          35m   v1.24.6
-    worker2.kryukov.local    Ready    <none>          35m   v1.24.6
-    worker3.kryukov.local    Ready    <none>          35m   v1.24.6
+    control1.k.erusnikov.ru   Ready    control-plane   36m   v1.24.6
+    control2.k.erusnikov.ru   Ready    control-plane   35m   v1.24.6
+    control3.k.erusnikov.ru   Ready    control-plane   36m   v1.24.6
+    db1.k.erusnikov.ru        Ready    <none>          35m   v1.24.6
+    worker1.k.erusnikov.ru    Ready    <none>          35m   v1.24.6
+    worker2.k.erusnikov.ru    Ready    <none>          35m   v1.24.6
+    worker3.k.erusnikov.ru    Ready    <none>          35m   v1.24.6
 
 К трём нодам (worker{1-3}) добавлены диски, смонтированные в /mnt/data. Эти
 диски будет использовать Longhorn.
@@ -138,29 +138,29 @@ helm uninstall longhorn -n longhorn-system
 Пометим ноды кластера, диски которых будет использовать Longhorn.
 
 ```shell
-kubectl annotate node worker1.kryukov.local node.longhorn.io/default-node-tags='["data"]'
-kubectl annotate node worker2.kryukov.local node.longhorn.io/default-node-tags='["data","db"]'
-kubectl annotate node worker3.kryukov.local node.longhorn.io/default-node-tags='["db"]'
-kubectl label node worker1.kryukov.local node.longhorn.io/create-default-disk='config'
-kubectl label node worker2.kryukov.local node.longhorn.io/create-default-disk='config'
-kubectl label node worker3.kryukov.local node.longhorn.io/create-default-disk='config'
-kubectl annotate node worker1.kryukov.local node.longhorn.io/default-disks-config='[{"name":"data","path":"/mnt/data","allowScheduling":true,"tags":["ssd"]}]'
-kubectl annotate node worker2.kryukov.local node.longhorn.io/default-disks-config='[{"name":"data","path":"/mnt/data","allowScheduling":false,"tags":["ssd"]}]'
-kubectl annotate node worker3.kryukov.local node.longhorn.io/default-disks-config='[{"name":"data","path":"/mnt/data","allowScheduling":true,"tags":["ssd"]}]'
+kubectl annotate node worker1.k.erusnikov.ru node.longhorn.io/default-node-tags='["data"]'
+kubectl annotate node worker2.k.erusnikov.ru node.longhorn.io/default-node-tags='["data","db"]'
+kubectl annotate node worker3.k.erusnikov.ru node.longhorn.io/default-node-tags='["db"]'
+kubectl label node worker1.k.erusnikov.ru node.longhorn.io/create-default-disk='config'
+kubectl label node worker2.k.erusnikov.ru node.longhorn.io/create-default-disk='config'
+kubectl label node worker3.k.erusnikov.ru node.longhorn.io/create-default-disk='config'
+kubectl annotate node worker1.k.erusnikov.ru node.longhorn.io/default-disks-config='[{"name":"data","path":"/mnt/data","allowScheduling":true,"tags":["ssd"]}]'
+kubectl annotate node worker2.k.erusnikov.ru node.longhorn.io/default-disks-config='[{"name":"data","path":"/mnt/data","allowScheduling":false,"tags":["ssd"]}]'
+kubectl annotate node worker3.k.erusnikov.ru node.longhorn.io/default-disks-config='[{"name":"data","path":"/mnt/data","allowScheduling":true,"tags":["ssd"]}]'
 ```
 
 На всякий пожарный, ниже команды удаляющие метки и аннотации.
 
 ```shell
-kubectl annotate node worker1.kryukov.local node.longhorn.io/default-node-tags-
-kubectl annotate node worker2.kryukov.local node.longhorn.io/default-node-tags-
-kubectl annotate node worker3.kryukov.local node.longhorn.io/default-node-tags-
-kubectl label node worker1.kryukov.local node.longhorn.io/create-default-disk-
-kubectl label node worker2.kryukov.local node.longhorn.io/create-default-disk-
-kubectl label node worker3.kryukov.local node.longhorn.io/create-default-disk-
-kubectl annotate node worker1.kryukov.local node.longhorn.io/default-disks-config-
-kubectl annotate node worker2.kryukov.local node.longhorn.io/default-disks-config-
-kubectl annotate node worker3.kryukov.local node.longhorn.io/default-disks-config-
+kubectl annotate node worker1.k.erusnikov.ru node.longhorn.io/default-node-tags-
+kubectl annotate node worker2.k.erusnikov.ru node.longhorn.io/default-node-tags-
+kubectl annotate node worker3.k.erusnikov.ru node.longhorn.io/default-node-tags-
+kubectl label node worker1.k.erusnikov.ru node.longhorn.io/create-default-disk-
+kubectl label node worker2.k.erusnikov.ru node.longhorn.io/create-default-disk-
+kubectl label node worker3.k.erusnikov.ru node.longhorn.io/create-default-disk-
+kubectl annotate node worker1.k.erusnikov.ru node.longhorn.io/default-disks-config-
+kubectl annotate node worker2.k.erusnikov.ru node.longhorn.io/default-disks-config-
+kubectl annotate node worker3.k.erusnikov.ru node.longhorn.io/default-disks-config-
 ```
 
 ### Изменяем параметры по умолчанию

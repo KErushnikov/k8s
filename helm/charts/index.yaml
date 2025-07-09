@@ -6,7 +6,7 @@ entries:
     created: "2021-12-18T13:28:08.501627915+03:00"
     description: My vision of openresty application
     digest: f38406aad976987e689c9217cbd530ba4931a02567d3d493c63f98803c9139ad
-    home: https://github.com/BigKAA/youtube/tree/master/helm
+    home: https://github.com/KErushnikov/k8s/tree/master/helm
     kubeVersion: '>= 1.19.0'
     maintainers:
     - email: artur@kryukov.biz

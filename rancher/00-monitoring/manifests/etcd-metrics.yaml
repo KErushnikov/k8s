@@ -53,7 +53,7 @@ spec:
       keySecret:
         name: kube-etcd-client-certs
         key: etcd-client.key
-      serverName: control1.kryukov.local
+      serverName: control1.k.erusnikov.ru
       insecureSkipVerify: true
   jobLabel: k8s-app
   selector:

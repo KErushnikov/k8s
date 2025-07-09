@@ -17,7 +17,7 @@ metadata:
 spec:
   ingressClassName: "system-ingress"
   rules:
-    - host: "keycloak.kryukov.local"
+    - host: "keycloak.k.erusnikov.ru"
       http:
         paths:
           - path: /iam/auth/
@@ -29,5 +29,5 @@ spec:
                   name: http
   tls:
   - hosts:
-      - keycloak.kryukov.local
+      - keycloak.k.erusnikov.ru
     secretName: keycloak-tls
