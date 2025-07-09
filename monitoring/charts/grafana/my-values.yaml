@@ -36,10 +36,7 @@ grafana:
   persistence:
     type: pvc
     enabled: true
-    storageClassName: davfs2
-    accessModes:
-      - ReadWriteOnce
-    size: 2Gi
+    existingClaim: vm-data-pvc
   datasources:
     datasources.yaml:
       apiVersion: 1
