@@ -8,8 +8,8 @@ _Основано на [Bitnami Object Storage Helm Chart based on MinIO](https:
 поды minio к соответствующим нодам кластера. Пометим две worker node при помощи label.
 
 ```shell
-kubectl label nodes worker1.k.erusnikov.ru minio=yes
-kubectl label nodes worker2.k.erusnikov.ru minio=yes
+kubectl label nodes worker1.k.erushnikov.ru minio=yes
+kubectl label nodes worker2.k.erushnikov.ru minio=yes
 ```
 
 Добавляем репо helm chart-а:
@@ -58,7 +58,7 @@ kubectl apply -f argo-app/argo-app.yaml
 
 Поскольку был установлен ingress, доступ к WEB интерфейсу:
 
-http://minio.k.erusnikov.ru
+http://minio.k.erushnikov.ru
 
 ## Видео
 

@@ -30,7 +30,7 @@ metadata:
 data:
   grafana.ini: |-
     [server]
-    domain = mon.k.erusnikov.ru
+    domain = mon.k.erushnikov.ru
     http_ports = 31080
     root_url = %(protocol)s://%(domain)s:%(http_port)s/grafana/
     serve_from_sub_path = true

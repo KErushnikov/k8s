@@ -4,10 +4,10 @@
 
 ## 00 - подготовительные действия
 
-На машине master запустить DNS сервер с зоной прямого преобразования "k.erusnikov.ru":
+На машине master запустить DNS сервер с зоной прямого преобразования "k.erushnikov.ru":
 
     $TTL 86400
-    @ IN SOA master.k.erusnikov.ru. artur.kryukov.biz. (
+    @ IN SOA master.k.erushnikov.ru. artur.kryukov.biz. (
                                                 2021012100 ;Serial
                                                 3600 ;Refresh
                                                 1800 ;Retry
@@ -29,24 +29,24 @@
 и зоной обратного преобразования "218.168.192.in-addr.arpa".
 
     $TTL 86400
-    @ IN SOA master.k.erusnikov.ru. artur.kryukov.biz. (
+    @ IN SOA master.k.erushnikov.ru. artur.kryukov.biz. (
                                                 2021012100 ;Serial
                                                 3600 ;Refresh
                                                 1800 ;Retry
                                                 604800 ;Expire
                                                 86400 ;Minimum TTL
     )
-    @ IN NS master.k.erusnikov.ru.
+    @ IN NS master.k.erushnikov.ru.
     
-    170 IN PTR master.k.erusnikov.ru.
+    170 IN PTR master.k.erushnikov.ru.
     
-    171     IN      PTR     control1.k.erusnikov.ru.
-    172     IN      PTR     control2.k.erusnikov.ru.
-    173     IN      PTR     control3.k.erusnikov.ru.
+    171     IN      PTR     control1.k.erushnikov.ru.
+    172     IN      PTR     control2.k.erushnikov.ru.
+    173     IN      PTR     control3.k.erushnikov.ru.
     
-    174     IN      PTR     worker1.k.erusnikov.ru.
-    175     IN      PTR     worker2.k.erusnikov.ru.
-    176     IN      PTR     worker3.k.erusnikov.ru.
+    174     IN      PTR     worker1.k.erushnikov.ru.
+    175     IN      PTR     worker2.k.erushnikov.ru.
+    176     IN      PTR     worker3.k.erushnikov.ru.
 
 Сгенерировать, если его ещё нет, ssh ключ:
 
@@ -92,12 +92,12 @@ python и pip.
 
     kubectl get nodes -o wide
     NAME                     STATUS   ROLES                  AGE   VERSION   INTERNAL-IP       EXTERNAL-IP   OS-IMAGE                KERNEL-VERSION                CONTAINER-RUNTIME
-    control1.k.erusnikov.ru   Ready    control-plane,master   25m   v1.20.2   192.168.218.171   <none>        CentOS Linux 7 (Core)   3.10.0-1160.11.1.el7.x86_64   containerd://1.3.9
-    control2.k.erusnikov.ru   Ready    control-plane,master   25m   v1.20.2   192.168.218.172   <none>        CentOS Linux 7 (Core)   3.10.0-1160.11.1.el7.x86_64   containerd://1.3.9
-    control3.k.erusnikov.ru   Ready    control-plane,master   24m   v1.20.2   192.168.218.173   <none>        CentOS Linux 7 (Core)   3.10.0-1160.11.1.el7.x86_64   containerd://1.3.9
-    worker1.k.erusnikov.ru    Ready    <none>                 22m   v1.20.2   192.168.218.174   <none>        CentOS Linux 7 (Core)   3.10.0-1160.11.1.el7.x86_64   containerd://1.3.9
-    worker2.k.erusnikov.ru    Ready    <none>                 22m   v1.20.2   192.168.218.175   <none>        CentOS Linux 7 (Core)   3.10.0-1160.11.1.el7.x86_64   containerd://1.3.9
-    worker3.k.erusnikov.ru    Ready    <none>                 13m   v1.20.2   192.168.218.176   <none>        CentOS Linux 7 (Core)   3.10.0-1160.11.1.el7.x86_64   containerd://1.3.9
+    control1.k.erushnikov.ru   Ready    control-plane,master   25m   v1.20.2   192.168.218.171   <none>        CentOS Linux 7 (Core)   3.10.0-1160.11.1.el7.x86_64   containerd://1.3.9
+    control2.k.erushnikov.ru   Ready    control-plane,master   25m   v1.20.2   192.168.218.172   <none>        CentOS Linux 7 (Core)   3.10.0-1160.11.1.el7.x86_64   containerd://1.3.9
+    control3.k.erushnikov.ru   Ready    control-plane,master   24m   v1.20.2   192.168.218.173   <none>        CentOS Linux 7 (Core)   3.10.0-1160.11.1.el7.x86_64   containerd://1.3.9
+    worker1.k.erushnikov.ru    Ready    <none>                 22m   v1.20.2   192.168.218.174   <none>        CentOS Linux 7 (Core)   3.10.0-1160.11.1.el7.x86_64   containerd://1.3.9
+    worker2.k.erushnikov.ru    Ready    <none>                 22m   v1.20.2   192.168.218.175   <none>        CentOS Linux 7 (Core)   3.10.0-1160.11.1.el7.x86_64   containerd://1.3.9
+    worker3.k.erushnikov.ru    Ready    <none>                 13m   v1.20.2   192.168.218.176   <none>        CentOS Linux 7 (Core)   3.10.0-1160.11.1.el7.x86_64   containerd://1.3.9
 
 Для просмотра контейнеров на ноде, вместо docker следует использовать crictl
 
@@ -114,12 +114,12 @@ python и pip.
     crictl pods
     POD ID              CREATED             STATE               NAME                                             NAMESPACE           ATTEMPT             RUNTIME
     a5bda83433ae1       15 minutes ago      Ready               kube-proxy-xbqkc                                 kube-system         0                   (default)
-    512d577e92ad5       15 minutes ago      Ready               kube-scheduler-control1.k.erusnikov.ru            kube-system         0                   (default)
-    4f6fa61c307dc       15 minutes ago      Ready               kube-controller-manager-control1.k.erusnikov.ru   kube-system         0                   (default)
+    512d577e92ad5       15 minutes ago      Ready               kube-scheduler-control1.k.erushnikov.ru            kube-system         0                   (default)
+    4f6fa61c307dc       15 minutes ago      Ready               kube-controller-manager-control1.k.erushnikov.ru   kube-system         0                   (default)
     f7d86f788f4eb       23 minutes ago      Ready               nodelocaldns-szggp                               kube-system         0                   (default)
     794808481e7ae       23 minutes ago      Ready               calico-node-kxlpj                                kube-system         0                   (default)
-    55baeed8da067       27 minutes ago      Ready               kube-apiserver-control1.k.erusnikov.ru            kube-system         0                   (default)
-    b43a297393ef9       27 minutes ago      Ready               etcd-control1.k.erusnikov.ru                      kube-system         0                   (default)
+    55baeed8da067       27 minutes ago      Ready               kube-apiserver-control1.k.erushnikov.ru            kube-system         0                   (default)
+    b43a297393ef9       27 minutes ago      Ready               etcd-control1.k.erushnikov.ru                      kube-system         0                   (default)
 
     crictl --help
 

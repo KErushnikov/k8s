@@ -99,7 +99,7 @@ metadata:
     node-role: control
 spec:
   interfaceName: ens160
-  node: control1.k.erusnikov.ru
+  node: control1.k.erushnikov.ru
   expectedIPs:
     - 192.168.218.171
 ```
@@ -254,7 +254,7 @@ metadata:
     node-role: control
 spec:
   interfaceName: ens160
-  node: control1.k.erusnikov.ru
+  node: control1.k.erushnikov.ru
 ```
 
 Тогда первая политика будет выглядеть так:
@@ -300,7 +300,7 @@ metadata:
     node-role: control
 spec:
   interfaceName: ens160
-  node: control1.k.erusnikov.ru
+  node: control1.k.erushnikov.ru
   expectedIPs:
     - 192.168.218.171
 ```

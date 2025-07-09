@@ -10,7 +10,7 @@ spec:
       sectionName: http
       kind: Gateway
   hostnames:
-    - "sample.k.erusnikov.ru"
+    - "sample.k.erushnikov.ru"
   rules:
     - backendRefs:
         - kind: Service

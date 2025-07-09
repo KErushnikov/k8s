@@ -62,8 +62,8 @@ debug: true
 Вешаем заразы и метки на ноды кластера. Для того, что бы приземлить базу данных на нужный сервер и запретить
 деплоить на него остальные приложения.
 
-    kubectl taint nodes db1.k.erusnikov.ru db=pgsql:NoSchedule
-    kubectl label nodes db1.k.erusnikov.ru db=pgsql-main
+    kubectl taint nodes db1.k.erushnikov.ru db=pgsql:NoSchedule
+    kubectl label nodes db1.k.erushnikov.ru db=pgsql-main
 
 Для определения БД можно воспользоваться helm или kustomize. Но мы будем пользоваться последним, поскольку он лучше
 документирован и helm chart очень, очень, очень сырой.

@@ -22,7 +22,7 @@ spec:
     - name: https
       protocol: HTTPS
       port: 8443
-      hostname: sample.k.erusnikov.ru
+      hostname: sample.k.erushnikov.ru
       tls:
         mode: Terminate
         certificateRefs:
@@ -34,7 +34,7 @@ spec:
     - name: https2
       protocol: HTTPS
       port: 8443
-      hostname: sample2.k.erusnikov.ru
+      hostname: sample2.k.erushnikov.ru
       tls:
         mode: Terminate
         certificateRefs:
@@ -73,7 +73,7 @@ spec:
       sectionName: https2
       kind: Gateway
   hostnames:
-    - "sample2.k.erusnikov.ru"
+    - "sample2.k.erushnikov.ru"
   rules:
     - backendRefs:
         - kind: Service
@@ -92,7 +92,7 @@ spec:
 kubectl apply -f manifests/07-https2-route.yaml
 ```
 
-Проверяем подключение к `https://sample2.k.erusnikov.ru`.
+Проверяем подключение к `https://sample2.k.erushnikov.ru`.
 
 ## TCPRoute
 
@@ -200,5 +200,5 @@ kubectl apply -f manifests/11-tcproute.yaml
 Проверим подключение к ssh серверу в контейнере:
 
 ```bash
-ssh artur@sample.k.erusnikov.ru -p 3000
+ssh artur@sample.k.erushnikov.ru -p 3000
 ```

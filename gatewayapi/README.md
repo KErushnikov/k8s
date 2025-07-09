@@ -61,7 +61,7 @@ spec:
       protocol: HTTPS
       port: 8443
       # hostaname для HTTPS и TLS listeners обязательно!
-      hostname: sample.k.erusnikov.ru
+      hostname: sample.k.erushnikov.ru
       tls:
         mode: Terminate
         certificateRefs:
@@ -93,7 +93,7 @@ Cert-manager поддерживает `kind: Gateway`. Аннотации 100% �
 ```yaml
   annotations:
     cert-manager.io/cluster-issuer: dev-ca-issuer
-    cert-manager.io/common-name: sample.k.erusnikov.ru
+    cert-manager.io/common-name: sample.k.erushnikov.ru
     cert-manager.io/subject-organizations: "home dev lab"
     cert-manager.io/subject-countries: "RU"
     cert-manager.io/subject-localities: "Moscow"
@@ -135,7 +135,7 @@ spec:
       kind: Gateway
       # namespace: sample
   hostnames:
-    - "sample.k.erusnikov.ru"
+    - "sample.k.erushnikov.ru"
   rules:
     - backendRefs:
         - kind: Service
@@ -178,7 +178,7 @@ spec:
       sectionName: https
       kind: Gateway
   hostnames:
-    - "sample.k.erusnikov.ru"
+    - "sample.k.erushnikov.ru"
   rules:
     - backendRefs:
         - kind: Service

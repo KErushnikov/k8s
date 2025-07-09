@@ -30,13 +30,13 @@ spec:
     - server auth
     - client auth
   dnsNames:
-  - k.erusnikov.ru
-  - am.k.erusnikov.ru
-  - grafana.k.erusnikov.ru
-  - karma.k.erusnikov.ru
-  - vm.k.erusnikov.ru
-  - vmagent.k.erusnikov.ru
-  - vmalert.k.erusnikov.ru
+  - k.erushnikov.ru
+  - am.k.erushnikov.ru
+  - grafana.k.erushnikov.ru
+  - karma.k.erushnikov.ru
+  - vm.k.erushnikov.ru
+  - vmagent.k.erushnikov.ru
+  - vmalert.k.erushnikov.ru
   ipAddresses:
   - 192.168.218.174
   - 192.168.218.175

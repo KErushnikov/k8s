@@ -54,7 +54,7 @@ spec:
   ## Fix to new versions of ingress controllers
   ingressClassName: "system-ingress"
   rules:
-    - host: "minio.k.erusnikov.ru"
+    - host: "minio.k.erushnikov.ru"
       http:
         paths:
           - path: /

@@ -159,10 +159,10 @@ spec:
   ingressClassName: system-ingress
   tls:
     - hosts:
-        - "am.k.erusnikov.ru"
+        - "am.k.erushnikov.ru"
       secretName: am-tls
   rules:
-    - host: "am.k.erusnikov.ru"
+    - host: "am.k.erushnikov.ru"
       http:
         paths:
           - path: /

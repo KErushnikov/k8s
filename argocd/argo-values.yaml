@@ -42,13 +42,13 @@ server:
       nginx.ingress.kubernetes.io/ssl-redirect: "false"
     ingressClassName: "system-ingress"
     hosts:
-      - argocd.k.erusnikov.ru
+      - argocd.k.erushnikov.ru
     paths:
       - /
     pathType: Prefix
     tls:
       - hosts:
-          - argocd.k.erusnikov.ru
+          - argocd.k.erushnikov.ru
         secretName: argocd-tls
 
     https: true

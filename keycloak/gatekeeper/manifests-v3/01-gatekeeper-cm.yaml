@@ -7,14 +7,14 @@ data:
   config.yaml: |
     client-id: $CLIENT_ID
     client-secret: $CLIENT_SECRET
-    discovery-url: http://keycloak.k.erusnikov.ru/iam/auth/realms/app
+    discovery-url: http://keycloak.k.erushnikov.ru/iam/auth/realms/app
     enable-metrics: true
     enable-refresh-tokens: true
     encryption-key: $ENCRYPTION_KEY
     skip-openid-provider-tls-verify: true
     listen: :3000
     listen-admin: :4000
-    redirection-url: https://application.k.erusnikov.ru
+    redirection-url: https://application.k.erushnikov.ru
     enable-logout-redirect: true
     enable-encrypted-token: true
     enable-json-logging: true

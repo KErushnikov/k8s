@@ -20,7 +20,7 @@ spec:
     - server auth
     - client auth
   dnsNames:
-  - testapp.k.erusnikov.ru
+  - testapp.k.erushnikov.ru
   issuerRef:
     name: dev-ca-issuer
     kind: ClusterIssuer

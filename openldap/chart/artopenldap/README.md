@@ -19,7 +19,7 @@ OpenLDAP helm chart
 
 ```yaml
 image:
-  repository: registry.k.erusnikov.ru/library/artopenldap
+  repository: registry.k.erushnikov.ru/library/artopenldap
   tag: "2.6.7"
 ```
 
@@ -329,7 +329,7 @@ backup:
   save:
     enable: false
     image:
-      repository: registry.k.erusnikov.ru/library/artopenldap
+      repository: registry.k.erushnikov.ru/library/artopenldap
       pullPolicy: IfNotPresent
       tag: "2.4.59"
       # tag: "2.6.7"

@@ -71,7 +71,7 @@ spec:
           enabled: true
 
       hosts:
-        domain: k.erusnikov.ru
+        domain: k.erushnikov.ru
         https: true
         externalIP: 192.168.218.189
 
@@ -118,7 +118,7 @@ spec:
         tls: false
         starttls_auto: false
         openssl_verify_mode: 'none'
-        domain: "git.k.erusnikov.ru"
+        domain: "git.k.erushnikov.ru"
         address: mail-relay.mail-relay.svc
         port: 25
         authentication: "none"
@@ -126,8 +126,8 @@ spec:
           secret: 'fake-mail-password'
           key: 'password'
       email:
-        from: "noreply@gitlab.k.erusnikov.ru"
-        display_name: "GitLab k.erusnikov.ru"
+        from: "noreply@gitlab.k.erushnikov.ru"
+        display_name: "GitLab k.erushnikov.ru"
 
     # https://docs.gitlab.com/charts/advanced/external-object-storage/#backups
     gitlab:
@@ -143,13 +143,13 @@ spec:
       webservice:
         ingress:
           annotations:
-            cert-manager.io/common-name: gitlab.k.erusnikov.ru
+            cert-manager.io/common-name: gitlab.k.erushnikov.ru
           tls:
             secretName: gitlab-tls
       kas:
         ingress:
           annotations:
-            cert-manager.io/common-name: kas.k.erusnikov.ru
+            cert-manager.io/common-name: kas.k.erushnikov.ru
           tls:
             secretName: kas-tls
     

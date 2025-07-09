@@ -8,9 +8,9 @@ docker build -t bigkaa/mail-relay:0.0.1 .
 
 ```shell
 docker run -d --rm --init \
-    -e POSTFIX_SMTP_HELO_NAME=gitlab.k.erusnikov.ru \
-    -e POSTFIX_MYORIGIN=gitlab.k.erusnikov.ru \
-    -e POSTFIX_MYHOSTNAME=gitlab.k.erusnikov.ru \
+    -e POSTFIX_SMTP_HELO_NAME=gitlab.k.erushnikov.ru \
+    -e POSTFIX_MYORIGIN=gitlab.k.erushnikov.ru \
+    -e POSTFIX_MYHOSTNAME=gitlab.k.erushnikov.ru \
     -e KUBER_NETWORK=10.233.0.0/16 \
     --mount type=bind,source=$(pwd)/main.cf.tmpl,target=/etc/postfix/main.cf.tmpl \
     --name mail-relay \

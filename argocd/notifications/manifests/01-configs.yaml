@@ -5,7 +5,7 @@ metadata:
   name: argocd-notifications-cm
 data:
   context: |
-    argocdUrl: http://argocd.k.erusnikov.ru
+    argocdUrl: http://argocd.k.erushnikov.ru
   template.app-created: |
     email:
       subject: Application {{.app.metadata.name}} has been created.

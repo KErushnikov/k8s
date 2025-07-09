@@ -30,11 +30,11 @@ spec:
     - server auth
     - client auth
   dnsNames:
-  - k.erusnikov.ru
-  - mon.k.erusnikov.ru
-  - grafana.k.erusnikov.ru
-  - prom.k.erusnikov.ru
-  - netdata.k.erusnikov.ru
+  - k.erushnikov.ru
+  - mon.k.erushnikov.ru
+  - grafana.k.erushnikov.ru
+  - prom.k.erushnikov.ru
+  - netdata.k.erushnikov.ru
   ipAddresses:
   - 192.168.218.174
   - 192.168.218.175

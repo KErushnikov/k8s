@@ -11,9 +11,9 @@ spec:
   ingressClassName: system-ingress
   tls:
     - hosts:
-        - dash.k.erusnikov.ru
+        - dash.k.erushnikov.ru
   rules:
-    - host: dash.k.erusnikov.ru
+    - host: dash.k.erushnikov.ru
       http:
         paths:
           - pathType: Prefix

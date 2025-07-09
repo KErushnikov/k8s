@@ -9,7 +9,7 @@ spec:
   - name: testapp-gw
     sectionName: http
   hostnames:
-  - testapp.k.erusnikov.ru
+  - testapp.k.erushnikov.ru
   rules:
   # - backendRefs:
   #   - name: testapp-one
@@ -30,7 +30,7 @@ spec:
   - name: testapp-gw
     sectionName: https
   hostnames:
-  - testapp.k.erusnikov.ru
+  - testapp.k.erushnikov.ru
   rules:
   - backendRefs:
     - name: testapp-one

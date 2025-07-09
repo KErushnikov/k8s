@@ -125,14 +125,14 @@ metadata:
     section: tools
 spec:
   rules:
-    - host: nexus.k.erusnikov.ru
+    - host: nexus.k.erushnikov.ru
       http:
         paths:
           - backend:
               serviceName: nexus-0
               servicePort: 8081
             path: /
-    - host: n.k.erusnikov.ru
+    - host: n.k.erushnikov.ru
       http:
         paths:
           - backend:
@@ -141,5 +141,5 @@ spec:
             path: /
   tls:
     - hosts:
-      - n.k.erusnikov.ru
+      - n.k.erushnikov.ru
       secretName: nexus-tls

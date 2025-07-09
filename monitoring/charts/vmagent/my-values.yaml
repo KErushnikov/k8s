@@ -23,13 +23,13 @@ victoria-metrics-agent:
 
     extraLabels: { }
     hosts:
-      - name: vmagent.k.erusnikov.ru
+      - name: vmagent.k.erushnikov.ru
         path: /
         port: http
     tls:
       - secretName: "wildcard-k-erushnikov-ru"
         hosts:
-          - vmagent.k.erusnikov.ru
+          - vmagent.k.erushnikov.ru
     pathType: Prefix
     ingressClassName: traefik
 

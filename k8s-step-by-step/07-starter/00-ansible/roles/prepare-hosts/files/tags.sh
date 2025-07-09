@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-DOCKER_HUB="starter.k.erusnikov.ru"
+DOCKER_HUB="starter.k.erushnikov.ru"
 cd
 echo "Load images from files"
 for I in $(ls k8s-images); do

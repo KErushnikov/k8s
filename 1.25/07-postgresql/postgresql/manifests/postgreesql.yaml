@@ -73,7 +73,7 @@ spec:
             - mountPath: /var/lib/postgresql/data
               name: postgresdata
       nodeSelector: 
-        kubernetes.io/hostname: db1.k.erusnikov.ru
+        kubernetes.io/hostname: db1.k.erushnikov.ru
       tolerations:
         - key: "db"
           operator: "Equal"

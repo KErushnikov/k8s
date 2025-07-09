@@ -25,13 +25,13 @@ victoria-metrics-single:
       annotations:
         certmanager.k8s.io/cluster-issuer: monitoring-issuer
       hosts:
-        - name: "vm.k.erusnikov.ru"
+        - name: "vm.k.erushnikov.ru"
           path: /
           port: 9090
       tls:
         - secretName: "mon-tls"
           hosts:
-            - vm.k.erusnikov.ru
+            - vm.k.erushnikov.ru
       ingressClassName: system-ingress
     statefulSet:
       enabled: true

@@ -107,7 +107,7 @@ spec:
           - --storage.tsdb.path=/prometheus
           - --web.console.libraries=/usr/share/prometheus/console_libraries
           - --web.console.templates=/usr/share/prometheus/consoles
-          - --web.external-url=http://mon.k.erusnikov.ru:31080/prometheus/
+          - --web.external-url=http://mon.k.erushnikov.ru:31080/prometheus/
         volumeMounts:
           - name: prometheus-config-volume
             mountPath: /etc/prometheus/prometheus.yml

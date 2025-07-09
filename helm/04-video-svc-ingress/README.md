@@ -80,7 +80,7 @@ ingress:
   annotations:
     certmanager.k8s.io/cluster-issuer: monitoring-issuer
   hosts:
-    - host: application.k.erusnikov.ru
+    - host: application.k.erushnikov.ru
       paths:
         - path: /
           pathType: Prefix

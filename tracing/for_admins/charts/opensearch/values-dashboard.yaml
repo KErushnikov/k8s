@@ -33,7 +33,7 @@ ingress:
   annotations: {}
   ingressClassName: "system-ingress"
   hosts:
-    - host: kibana.k.erusnikov.ru
+    - host: kibana.k.erushnikov.ru
       paths:
         - path: /
           backend:
@@ -42,7 +42,7 @@ ingress:
   tls:
     - secretName: master-tls
       hosts:
-        - kibana.k.erusnikov.ru
+        - kibana.k.erushnikov.ru
 
 resources:
   requests:

@@ -17,7 +17,7 @@ spec:
           enabled: true
           className: "system-ingress"
           hosts:
-            - host: example.k.erusnikov.ru
+            - host: example.k.erushnikov.ru
               paths:
                 - path: /
                   pathType: ImplementationSpecific

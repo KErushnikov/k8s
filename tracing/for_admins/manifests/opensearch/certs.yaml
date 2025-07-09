@@ -81,8 +81,8 @@ spec:
     - client auth
   dnsNames:
     - localhost
-    - esapi.k.erusnikov.ru
-    - kibana.k.erusnikov.ru
+    - esapi.k.erushnikov.ru
+    - kibana.k.erushnikov.ru
     - opensearch-cluster-master.es.svc
     - opensearch-cluster-master.es.cluster.local
   ipAddresses:

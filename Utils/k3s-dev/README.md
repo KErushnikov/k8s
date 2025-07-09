@@ -43,13 +43,13 @@ options {
         recursion yes;
         dnssec-validation no;
 };        
-zone "k.erusnikov.ru" IN {
+zone "k.erushnikov.ru" IN {
         type master;
-        file "k.erusnikov.ru";
+        file "k.erushnikov.ru";
 };        
 ```
 
-Файл `/var/named/k.erusnikov.ru`:
+Файл `/var/named/k.erushnikov.ru`:
 
 ```zone
 $TTL 1D
@@ -73,7 +73,7 @@ postgre     IN CNAME dev
 
 ```shell
 named-checkconf
-named-checkzone k.erusnikov.ru /var/named/k.erusnikov.ru
+named-checkzone k.erushnikov.ru /var/named/k.erushnikov.ru
 systemctl start named
 systemctl enable named
 ```
@@ -90,7 +90,7 @@ systemctl restart NetworkManager
 ```shell
 cat /etc/resolv.conf
 dig mail.ru
-dig dev.k.erusnikov.ru
+dig dev.k.erushnikov.ru
 ```
 
 ## k3s

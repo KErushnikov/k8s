@@ -25,7 +25,7 @@ kubeVersion: < 1.24.0-0
 
     helm install rancher ./rancher \
     --namespace cattle-system \
-    --set hostname=rancher.k.erusnikov.ru \
+    --set hostname=rancher.k.erushnikov.ru \
     --set bootstrapPassword=admin \
     --set replicas=1
 

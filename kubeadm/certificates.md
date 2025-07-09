@@ -58,7 +58,7 @@ systemctl status kubelet
 Мне кажется, что проще это сделать перезагрузив ноду целиком.
 
 ```shell
-kubectl drain control1.k.erusnikov.ru
+kubectl drain control1.k.erushnikov.ru
 reboot
 ```
 

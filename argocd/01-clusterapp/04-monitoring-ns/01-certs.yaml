@@ -34,8 +34,8 @@ spec:
     - server auth
     - client auth
   dnsNames:
-  - k.erusnikov.ru
-  - mon.k.erusnikov.ru
+  - k.erushnikov.ru
+  - mon.k.erushnikov.ru
   issuerRef:
     name: monitoring-issuer
     # We can reference ClusterIssuers by changing the kind here.

@@ -55,7 +55,7 @@ metadata:
   name: minio-console
   annotations:
     cert-manager.io/cluster-issuer: dev-ca-issuer
-    cert-manager.io/common-name: minio.k.erusnikov.ru
+    cert-manager.io/common-name: minio.k.erushnikov.ru
     cert-manager.io/subject-organizations: "home dev lab"
     cert-manager.io/subject-countries: "RU"
     cert-manager.io/subject-localities: "Moscow"
@@ -69,7 +69,7 @@ metadata:
 spec:
   ingressClassName: "system-ingress"
   rules:
-    - host: "minio.k.erusnikov.ru"
+    - host: "minio.k.erushnikov.ru"
       http:
         paths:
           - path: /
@@ -81,5 +81,5 @@ spec:
                   name: http
   tls:
     - hosts:
-      - minio.k.erusnikov.ru
+      - minio.k.erushnikov.ru
       secretName: minio-console-tls

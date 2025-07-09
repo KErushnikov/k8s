@@ -89,7 +89,7 @@ metadata:
     kubernetes.io/ingress.class: "system-ingress"
 spec:
   rules:
-    - host: "application.k.erusnikov.ru"
+    - host: "application.k.erushnikov.ru"
       http:
         paths:
           - pathType: Prefix

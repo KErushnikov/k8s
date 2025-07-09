@@ -202,7 +202,7 @@ data:
   POSTGRESQL_USERNAME: "harbor"
   POSTGRESQL_DATABASE: "harborcore"
   POSTGRESQL_SSLMODE: "disable"
-  EXT_ENDPOINT: "http://harbor.k.erusnikov.ru"
+  EXT_ENDPOINT: "http://harbor.k.erushnikov.ru"
   CORE_URL: "http://system-harbor-core:80"
   JOBSERVICE_URL: "http://system-harbor-jobservice"
   REGISTRY_URL: "http://system-harbor-registry:5000"
@@ -1706,7 +1706,7 @@ spec:
                 name: system-harbor-core
                 port:
                   name: http
-      host: harbor.k.erusnikov.ru
+      host: harbor.k.erushnikov.ru
 ---
 # Source: harbor/templates/ingress/ingress.yaml
 apiVersion: networking.k8s.io/v1
@@ -1735,4 +1735,4 @@ spec:
                 name: system-harbor-notary-server
                 port:
                   number: 4443
-      host: notary.k.erusnikov.ru
+      host: notary.k.erushnikov.ru

@@ -4,13 +4,13 @@ ingress:
   annotations:
     certmanager.k8s.io/cluster-issuer: monitoring-issuer
   hosts:
-    - host: grafana.k.erusnikov.ru
+    - host: grafana.k.erushnikov.ru
       paths:
         - path: /
           pathType: Prefix
   tls:
     - hosts:
-        - grafana.k.erusnikov.ru
+        - grafana.k.erushnikov.ru
       secretName: grafana-tls
 
 grafana:
@@ -35,8 +35,8 @@ grafana:
     size: 2Gi
   grafana.ini:
     server:
-      domain: grafana.k.erusnikov.ru
-      root_url: https://grafana.k.erusnikov.ru
+      domain: grafana.k.erushnikov.ru
+      root_url: https://grafana.k.erushnikov.ru
   dashboardProviders:
     dashboardproviders.yaml:
       apiVersion: 1

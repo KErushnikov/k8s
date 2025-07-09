@@ -106,7 +106,7 @@ calicoctl get networkPolicy -n app2
 Проверяем работу приложений.
 
 ```shell
-curl -s http://example.k.erusnikov.ru/app2 | jq
+curl -s http://example.k.erushnikov.ru/app2 | jq
 ```
 
 Политика сработала, получаем сообщение об ошибке.
@@ -141,7 +141,7 @@ calicoctl apply -f np/np-02.yaml
 Проверяем доступы:
 
 ```shell
-curl -s http://example.k.erusnikov.ru/app2 | jq
+curl -s http://example.k.erushnikov.ru/app2 | jq
 ```
 
 Запустим приложение в namespace default:

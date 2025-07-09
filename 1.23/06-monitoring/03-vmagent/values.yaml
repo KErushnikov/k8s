@@ -22,13 +22,13 @@ ingress:
 
   extraLabels: {}
   hosts:
-    - name: vmagent.k.erusnikov.ru
+    - name: vmagent.k.erushnikov.ru
       path: /
       port: http
   tls:
     - secretName: "vmagent-tls"
       hosts:
-        - vmagent.k.erusnikov.ru
+        - vmagent.k.erushnikov.ru
   pathType: Prefix
   ingressClassName: system-ingress
 

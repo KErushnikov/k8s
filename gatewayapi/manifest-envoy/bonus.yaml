@@ -43,7 +43,7 @@ spec:
     - server auth
     - client auth
   dnsNames:
-  - sample.k.erusnikov.ru
+  - sample.k.erushnikov.ru
   issuerRef:
     name: dev-ca-issuer
     kind: ClusterIssuer
@@ -91,7 +91,7 @@ spec:
       sectionName: http
       kind: Gateway
   hostnames:
-    - "sample.k.erusnikov.ru"
+    - "sample.k.erushnikov.ru"
   rules:
     - backendRefs:
         - kind: Service
@@ -114,7 +114,7 @@ spec:
       sectionName: https
       kind: Gateway
   hostnames:
-    - "sample.k.erusnikov.ru"
+    - "sample.k.erushnikov.ru"
   rules:
     - backendRefs:
         - kind: Service

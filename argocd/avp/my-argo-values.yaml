@@ -2,7 +2,7 @@ crds:
   keep: false
 
 global:
-  domain: argocd.k.erusnikov.ru
+  domain: argocd.k.erushnikov.ru
 
   logging:
     format: json
@@ -81,7 +81,7 @@ server:
 
   certificate:
     enabled: true
-    domain: "argocd.k.erusnikov.ru"
+    domain: "argocd.k.erushnikov.ru"
     duration: "9125h"
     renewBefore: "360h"
     issuer:
@@ -104,7 +104,7 @@ server:
       cert-manager.io/cluster-issuer: "argocd-issuer"
       nginx.ingress.kubernetes.io/ssl-redirect: "false"
     ingressClassName: "system-ingress"
-    hostname: "argocd.k.erusnikov.ru"
+    hostname: "argocd.k.erushnikov.ru"
     paths:
       - /
     pathType: Prefix

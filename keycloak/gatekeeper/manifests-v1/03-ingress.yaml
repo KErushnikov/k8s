@@ -10,10 +10,10 @@ spec:
   ingressClassName: "system-ingress"
   tls:
     - hosts:
-        - application.k.erusnikov.ru
+        - application.k.erushnikov.ru
       secretName: app-tls
   rules:
-    - host: "application.k.erusnikov.ru"
+    - host: "application.k.erushnikov.ru"
       http:
         paths:
           - pathType: Prefix

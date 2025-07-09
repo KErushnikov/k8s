@@ -15,7 +15,7 @@ spec:
       values: |
         # initial admin password
         adminPassword: "password"
-        externalURL: https://registry.k.erusnikov.ru
+        externalURL: https://registry.k.erushnikov.ru
         logLevel: info
         ipFamily:
           ipv6:
@@ -24,14 +24,14 @@ spec:
         ingress:
           core:
             ingressClassName: "system-ingress"
-            hostname: registry.k.erusnikov.ru
+            hostname: registry.k.erushnikov.ru
             annotations:
               ingress.kubernetes.io/ssl-redirect: "true"
               ingress.kubernetes.io/proxy-body-size: "0"
               nginx.ingress.kubernetes.io/ssl-redirect: "true"
               nginx.ingress.kubernetes.io/proxy-body-size: "0"
               cert-manager.io/cluster-issuer: dev-ca-issuer
-              cert-manager.io/common-name: registry.k.erusnikov.ru
+              cert-manager.io/common-name: registry.k.erushnikov.ru
               cert-manager.io/subject-organizations: "home dev lab"
               cert-manager.io/subject-countries: "RU"
               cert-manager.io/subject-localities: "Moscow"

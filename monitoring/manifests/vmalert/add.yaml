@@ -144,7 +144,7 @@ metadata:
 spec:
   ingressClassName: system-ingress
   rules:
-    - host: vmalert.k.erusnikov.ru
+    - host: vmalert.k.erushnikov.ru
       http:
         paths:
           - path: /
@@ -156,5 +156,5 @@ spec:
                   number: 8880
   tls:
     - hosts:
-        - vmalert.k.erusnikov.ru
+        - vmalert.k.erushnikov.ru
       secretName: vmalert-tls

@@ -27,13 +27,13 @@ victoria-metrics-single:
       annotations:
         certmanager.k8s.io/cluster-issuer: letsencrypt-prod
       hosts:
-        - name: "vm.k.erusnikov.ru"
+        - name: "vm.k.erushnikov.ru"
           path: /
           port: http
       tls:
         - secretName: "wildcard-k-erushnikov-ru"
           hosts:
-            - vm.k.erusnikov.ru
+            - vm.k.erushnikov.ru
       ingressClassName: traefik
     statefulSet:
       enabled: true

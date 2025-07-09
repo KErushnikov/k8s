@@ -81,8 +81,8 @@ spec:
     - client auth
   dnsNames:
     - localhost
-    - esapi.k.erusnikov.ru
-    - kibana.k.erusnikov.ru
+    - esapi.k.erushnikov.ru
+    - kibana.k.erushnikov.ru
   ipAddresses:
     - 127.0.0.1
   issuerRef:

@@ -22,8 +22,8 @@ _В моём кластере все PV размещаются на nfs диск
 ```yaml
   dnsNames:
     - localhost
-    - esapi.k.erusnikov.ru
-    - kibana.k.erusnikov.ru
+    - esapi.k.erushnikov.ru
+    - kibana.k.erushnikov.ru
     - opensearch-cluster-master.es.svc
     - opensearch-cluster-master.es.cluster.local
 ```
@@ -63,7 +63,7 @@ helm install dashboard opensearch/opensearch-dashboards -f charts/opensearch/val
 В итоге получаем следующие точки доступа к кластеру opensearch:
 
 * https://opensearch-cluster-master.es.svc:9200 - сервис внутри кластера kubernetes, для подключения к API opensearch.
-* https://kibana.k.erusnikov.ru/ - доступ к dashboard. Пользователь `admin` пароль `password`.
+* https://kibana.k.erushnikov.ru/ - доступ к dashboard. Пользователь `admin` пароль `password`.
 
 ## Jaeger
 
@@ -209,4 +209,4 @@ kubectl -n ingress-nginx get pods
 kubectl apply -f manifests/applications
 ```
 
-Дальше смотрим трейсы: http://application.k.erusnikov.ru
+Дальше смотрим трейсы: http://application.k.erushnikov.ru

@@ -15,13 +15,13 @@ victoria-metrics-alert:
       annotations:
         certmanager.k8s.io/cluster-issuer: monitoring-issuer
       hosts:
-        - name: vmalert.k.erusnikov.ru
+        - name: vmalert.k.erushnikov.ru
           path: /
           port: http
       pathType: Prefix
       tls:
         - hosts:
-            - vmalert.k.erusnikov.ru
+            - vmalert.k.erushnikov.ru
           secretName: vmalert-tls
     resources:
       limits:

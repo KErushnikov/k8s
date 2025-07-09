@@ -2,12 +2,12 @@
 
 В моём стенде будет 8 виртуальных машин.
 
-* **master.k.erusnikov.ru** (RAM 1GB, CPU 1) - вспомогательная машина. 
+* **master.k.erushnikov.ru** (RAM 1GB, CPU 1) - вспомогательная машина. 
   * Кеширующий DNS сервер для машин тестового стенда.
-  * Поддержка зоны k.erusnikov.ru.
-* **control{1,2,3}.k.erusnikov.ru** (RAM 4GB, CPU 4) - control nodes кластера kubernetes.
-* **worker{1,2,3}.k.erusnikov.ru** (RAM 8GB, CPU 6) - общие worker nodes кластера kubernetes.
-* **db1.k.erusnikov.ru (RAM 4GB, CPU 4)** - дополнительная worker node.
+  * Поддержка зоны k.erushnikov.ru.
+* **control{1,2,3}.k.erushnikov.ru** (RAM 4GB, CPU 4) - control nodes кластера kubernetes.
+* **worker{1,2,3}.k.erushnikov.ru** (RAM 8GB, CPU 6) - общие worker nodes кластера kubernetes.
+* **db1.k.erushnikov.ru (RAM 4GB, CPU 4)** - дополнительная worker node.
 
 На всех машинах, кроме master, установлен AlmaLinux 8.6.
 
@@ -19,7 +19,7 @@
 
 На машине master установлен DNS server BIND.
 
-В файл `/etc/named.conf` добавлена поддержка двух зон: `k.erusnikov.ru` и `218.168.192.in-addr.arpa`.
+В файл `/etc/named.conf` добавлена поддержка двух зон: `k.erushnikov.ru` и `218.168.192.in-addr.arpa`.
 
 ```
 options {
@@ -50,9 +50,9 @@ zone "." IN {
         type hint;
         file "named.ca";
 };
-zone "k.erusnikov.ru" IN {
+zone "k.erushnikov.ru" IN {
         type master;
-        file "k.erusnikov.ru";
+        file "k.erushnikov.ru";
 };
 zone "218.168.192.in-addr.arpa" IN {
         type master;
@@ -64,11 +64,11 @@ include "/etc/named.root.key";
 
 Файлы описания зон находятся в директории `/var/named`.
 
-k.erusnikov.ru:
+k.erushnikov.ru:
 
 ```
 $TTL 86400
-@ IN SOA master.k.erusnikov.ru. artur.kryukov.biz. (
+@ IN SOA master.k.erushnikov.ru. artur.kryukov.biz. (
                                                 2022120100 ;Serial
                                                 3600 ;Refresh
                                                 1800 ;Retry
@@ -98,7 +98,7 @@ kubeapi         IN      A       192.168.218.189
 
 ```
 $TTL 86400
-@ IN SOA master.k.erusnikov.ru. artur.kryukov.biz. (
+@ IN SOA master.k.erushnikov.ru. artur.kryukov.biz. (
                                             2022120100 ;Serial
                                             3600 ;Refresh
                                             1800 ;Retry
@@ -106,19 +106,19 @@ $TTL 86400
                                             86400 ;Minimum TTL
 )
 
-@ IN NS master.k.erusnikov.ru.
+@ IN NS master.k.erushnikov.ru.
 
-170     IN      PTR master.k.erusnikov.ru.
-171     IN      PTR     control1.k.erusnikov.ru.
-172     IN      PTR     control2.k.erusnikov.ru.
-173     IN      PTR     control3.k.erusnikov.ru.
-174     IN      PTR     worker1.k.erusnikov.ru.
-175     IN      PTR     worker2.k.erusnikov.ru.
-176     IN      PTR     worker3.k.erusnikov.ru.
-177     IN      PTR     db1.k.erusnikov.ru.
+170     IN      PTR master.k.erushnikov.ru.
+171     IN      PTR     control1.k.erushnikov.ru.
+172     IN      PTR     control2.k.erushnikov.ru.
+173     IN      PTR     control3.k.erushnikov.ru.
+174     IN      PTR     worker1.k.erushnikov.ru.
+175     IN      PTR     worker2.k.erushnikov.ru.
+176     IN      PTR     worker3.k.erushnikov.ru.
+177     IN      PTR     db1.k.erushnikov.ru.
 
-180     IN      PTR     metallb.k.erusnikov.ru.
-189     IN      PTR     kubeapi.k.erusnikov.ru.
+180     IN      PTR     metallb.k.erushnikov.ru.
+189     IN      PTR     kubeapi.k.erushnikov.ru.
 ```
 
 ## NFS сервер
@@ -137,16 +137,16 @@ $TTL 86400
 описаны в файле `C:\Windows\System32\drivers\etc\hosts`:
 
 ```
-192.168.218.170 master.k.erusnikov.ru
-192.168.218.171 control1.k.erusnikov.ru
-192.168.218.172 control2.k.erusnikov.ru
-192.168.218.173 control3.k.erusnikov.ru
-192.168.218.174 worker1.k.erusnikov.ru
-192.168.218.175 worker2.k.erusnikov.ru
-192.168.218.176 worker3.k.erusnikov.ru
-192.168.218.177 db1.k.erusnikov.ru
-192.168.218.180 metallb.k.erusnikov.ru
-192.168.218.189 kubeapi.k.erusnikov.ru
+192.168.218.170 master.k.erushnikov.ru
+192.168.218.171 control1.k.erushnikov.ru
+192.168.218.172 control2.k.erushnikov.ru
+192.168.218.173 control3.k.erushnikov.ru
+192.168.218.174 worker1.k.erushnikov.ru
+192.168.218.175 worker2.k.erushnikov.ru
+192.168.218.176 worker3.k.erushnikov.ru
+192.168.218.177 db1.k.erushnikov.ru
+192.168.218.180 metallb.k.erushnikov.ru
+192.168.218.189 kubeapi.k.erushnikov.ru
 ```
 
 Включен wsl2, в котором установлен дистрибутив Ubuntu 22.04.1 LTS.

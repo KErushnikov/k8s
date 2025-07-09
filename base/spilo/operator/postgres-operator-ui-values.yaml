@@ -51,7 +51,7 @@ envs:
     - "test1"
     - "test2"
   # Fix для версии v1.10.0
-  appUrl: "http://operator.k.erusnikov.ru"
+  appUrl: "http://operator.k.erushnikov.ru"
 
 # Extra pod annotations
 podAnnotations:
@@ -106,7 +106,7 @@ ingress:
     # kubernetes.io/tls-acme: "true"
   ingressClassName: "system-ingress"
   hosts:
-    - host: operator.k.erusnikov.ru
+    - host: operator.k.erushnikov.ru
       paths: [""]
   tls: []
   #  - secretName: ui-tls

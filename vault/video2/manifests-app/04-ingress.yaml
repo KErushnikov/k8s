@@ -6,7 +6,7 @@ metadata:
 spec:
   ingressClassName: "system-ingress"
   rules:
-    - host: "application.k.erusnikov.ru"
+    - host: "application.k.erushnikov.ru"
       http:
         paths:
           - pathType: Prefix

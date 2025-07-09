@@ -6,7 +6,7 @@
 
 В группе `dev` добавляем переменные:
 
-- DEV_REGISTRY - `registry.k.erusnikov.ru`
+- DEV_REGISTRY - `registry.k.erushnikov.ru`
 - DEV_REGISTRY_USER - `admin`
 - DEV_REGISTRY_PASSWORD - `password`
 - DEV_CA - добавляем (как файл) сертификат нашего кастомного CA. *ca.crt находится в namespace `cert-manager`, secret `dev-ca`.*
@@ -34,15 +34,15 @@
 ### Docker
 
 ```shell
-docker login registry.k.erusnikov.ru
+docker login registry.k.erushnikov.ru
 ```
 
 ```shell
-docker build -t registry.k.erusnikov.ru/library/ubuntu_ssh:24.04 .
+docker build -t registry.k.erushnikov.ru/library/ubuntu_ssh:24.04 .
 ```
 
 ```shell
-docker push registry.k.erusnikov.ru/library/ubuntu_ssh:24.04
+docker push registry.k.erushnikov.ru/library/ubuntu_ssh:24.04
 ```
 
 ### Сборка контейнера в Gitlab
@@ -80,7 +80,7 @@ ssh-keygen -t ed25519
 В Harbor создаём публичный проект `charts`.
 
 ```shell
-git clone https://gitlab.k.erusnikov.ru/dev/charts/devcontainer.git
+git clone https://gitlab.k.erushnikov.ru/dev/charts/devcontainer.git
 ```
 
 Копируем в проект директорию [devcontainer](charts/devcontainer) со всем содержимым.
@@ -106,7 +106,7 @@ helm install artur charts/devcontainer
 В ручную, из репозитория:
 
 ```shell
-helm install artur oci://registry.k.erusnikov.ru/charts/devcontainer --version 0.1.0
+helm install artur oci://registry.k.erushnikov.ru/charts/devcontainer --version 0.1.0
 ```
 
 Или чарт k3s:

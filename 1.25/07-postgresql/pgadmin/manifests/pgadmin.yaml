@@ -81,7 +81,7 @@ spec:
           - mountPath: /var/lib/pgadmin
             name: state
       nodeSelector: 
-        kubernetes.io/hostname: db1.k.erusnikov.ru
+        kubernetes.io/hostname: db1.k.erushnikov.ru
       tolerations:
         - key: "db"
           operator: "Equal"
@@ -99,7 +99,7 @@ metadata:
 spec:
   ingressClassName: system-ingress
   rules:
-    - host: pg.k.erusnikov.ru
+    - host: pg.k.erushnikov.ru
       http:
         paths:
           - pathType: Prefix

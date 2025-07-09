@@ -13170,8 +13170,8 @@
       {
         "current": {
           "selected": false,
-          "text": "worker2.k.erusnikov.ru",
-          "value": "worker2.k.erusnikov.ru"
+          "text": "worker2.k.erushnikov.ru",
+          "value": "worker2.k.erushnikov.ru"
         },
         "datasource": {
           "type": "prometheus",

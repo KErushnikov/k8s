@@ -59,7 +59,7 @@ CI разделена на два stage: build и push. На первом эта
 Добавим в файл `/etc/hosts` машину с Harbor моего dev стенда. *Смотрите цикл видео про среду разработки на базе k3s.*
 
 ```txt
-192.168.218.189 registry.k.erusnikov.ru
+192.168.218.189 registry.k.erushnikov.ru
 ```
 
 На всякий случай. Если вдруг осталась старая конфигурация:
@@ -104,7 +104,7 @@ update-ca-trust extract
 Проверим, добавился ли сертификат в список доверенных.
 
 ```shell
-curl -I https://registry.k.erusnikov.ru
+curl -I https://registry.k.erushnikov.ru
 ```
 
 Поправим конфигурацию containerd:
@@ -180,7 +180,7 @@ nerdctl --help
 Попробуем загрузить контейнер:
 
 ```shell
-nerdctl pull registry.k.erusnikov.ru/library/artopenldap:2.4.59
+nerdctl pull registry.k.erushnikov.ru/library/artopenldap:2.4.59
 nerdctl pull nginx:latest
 ```
 
@@ -234,7 +234,7 @@ nerdctl run --network host -d \
    --mount type=bind,src=/var/lib/openldap,dst=/var/lib/openldap \
    --ulimit nofile=1024:1024 \
    --name openldap \
-   registry.k.erusnikov.ru/library/artopenldap:2.4.59
+   registry.k.erushnikov.ru/library/artopenldap:2.4.59
 ```
 
 Проверим наличие работающего контейнера:
@@ -324,7 +324,7 @@ nerdctl run --network host -d \
    --mount type=bind,src=/var/lib/openldap,dst=/var/lib/openldap \
    --ulimit nofile=1024:1024\
    --name openldap \
-   registry.k.erusnikov.ru/library/artopenldap:2.4.59
+   registry.k.erushnikov.ru/library/artopenldap:2.4.59
 ```
 
 Проверим наличие работающего контейнера:
@@ -374,14 +374,14 @@ TimeoutStartSec=0
 Restart=always
 ExecStartPre=-/usr/local/bin/nerdctl stop %n
 ExecStartPre=-/usr/local/bin/nerdctl rm %n
-ExecStartPre=/usr/local/bin/nerdctl image pull registry.k.erusnikov.ru/library/artopenldap:2.4.59
+ExecStartPre=/usr/local/bin/nerdctl image pull registry.k.erushnikov.ru/library/artopenldap:2.4.59
 ExecStart=/usr/local/bin/nerdctl run --network host \
    --mount type=bind,src=/etc/openldap/slapd.d,dst=/etc/openldap/slapd.d \
    --mount type=bind,src=/var/lib/openldap,dst=/var/lib/openldap \
    --name %n \
    --ulimit nofile=1024:1024\
    --entrypoint /usr/sbin/slapd \
-   registry.k.erusnikov.ru/library/artopenldap:2.4.59  \
+   registry.k.erushnikov.ru/library/artopenldap:2.4.59  \
       -4 -F /etc/openldap/slapd.d -u ldap -g ldap \
       -h "ldap://0.0.0.0:10389/ ldapi://%%2Fvar%%2Flib%%2Fopenldap%%2Frun%%2Fsldap.sock/" \
       -d "256"

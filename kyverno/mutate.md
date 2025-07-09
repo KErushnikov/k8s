@@ -25,7 +25,7 @@ kubectl create ns project-templates
 
 ```shell
 kubectl -n project-templates create secret docker-registry docker-registry \
-  --docker-email=kyverno@k.erusnikov.ru \
+  --docker-email=kyverno@k.erushnikov.ru \
   --docker-username=kyverno \
   --docker-password=aQp-dpN-h95-C2M \
   --docker-server=lunar.kryukov.biz:10443

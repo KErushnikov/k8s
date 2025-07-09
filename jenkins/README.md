@@ -6,17 +6,17 @@ kubernetes.
 ## Собираем образ.
 
     # docker build -t bigkaa/jenkins:v0.1 docker-jenkins
-    # docker tag bigkaa/jenkins:v0.1 n.k.erusnikov.ru/bigkaa/jenkins:v0.1
-    # docker push n.k.erusnikov.ru/bigkaa/jenkins:v0.1
+    # docker tag bigkaa/jenkins:v0.1 n.k.erushnikov.ru/bigkaa/jenkins:v0.1
+    # docker push n.k.erushnikov.ru/bigkaa/jenkins:v0.1
     
     # docker build -t bigkaa/inbound-agent:v0.1 docker-inbound-agent
-    # docker tag bigkaa/inbound-agent:v0.1 n.k.erusnikov.ru/bigkaa/inbound-agent:v0.1
-    # docker push n.k.erusnikov.ru/bigkaa/inbound-agent:v0.1
+    # docker tag bigkaa/inbound-agent:v0.1 n.k.erushnikov.ru/bigkaa/inbound-agent:v0.1
+    # docker push n.k.erushnikov.ru/bigkaa/inbound-agent:v0.1
 
 ## На каждой ноде кластера копируем сертификат CA kubernetes
 
-    # mkdir -p /etc/docker/certs.d/n.k.erusnikov.ru
-    # cp /etc/kubernetes/pki/ca.crt /etc/docker/certs.d/n.k.erusnikov.ru
+    # mkdir -p /etc/docker/certs.d/n.k.erushnikov.ru
+    # cp /etc/kubernetes/pki/ca.crt /etc/docker/certs.d/n.k.erushnikov.ru
 
 ## Добавляем namespace
 
@@ -24,9 +24,9 @@ kubernetes.
 
 ## Создаем secret docker registry
 
-    # docker login -u docker-user -p password n.k.erusnikov.ru
+    # docker login -u docker-user -p password n.k.erushnikov.ru
     # cp ~/.docker/config.json ~
-    # kubectl -n jenkins create secret generic k.erusnikov.ru \
+    # kubectl -n jenkins create secret generic k.erushnikov.ru \
      --from-file=.dockerconfigjson=config.json \
      --type=kubernetes.io/dockerconfigjson
 

@@ -65,10 +65,10 @@ spec:
     spec:
       serviceAccountName: jenkins-account
       imagePullSecrets:
-        - name: k.erusnikov.ru
+        - name: k.erushnikov.ru
       containers:
       - name: jenkins
-        image: n.k.erusnikov.ru/bigkaa/jenkins:v0.1
+        image: n.k.erushnikov.ru/bigkaa/jenkins:v0.1
         imagePullPolicy: IfNotPresent
         env:
           - name: JAVA_OPTS
@@ -133,7 +133,7 @@ metadata:
     section: tools
 spec:
   rules:
-    - host: j.k.erusnikov.ru
+    - host: j.k.erushnikov.ru
       http:
         paths:
           - backend:

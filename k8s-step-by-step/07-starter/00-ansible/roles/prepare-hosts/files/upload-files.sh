@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-NEXUS=nexus.k.erusnikov.ru
+NEXUS=nexus.k.erushnikov.ru
 SRC_DIR=/root/docker-images
 KUBE_VERSION=v1.23.5
 cd

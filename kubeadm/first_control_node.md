@@ -41,7 +41,7 @@ localAPIEndpoint:
 nodeRegistration:
   criSocket: "unix:///var/run/containerd/containerd.sock"
   imagePullPolicy: IfNotPresent
-  name: control1.k.erusnikov.ru
+  name: control1.k.erushnikov.ru
   taints:
   - effect: NoSchedule
     key: node-role.kubernetes.io/master
@@ -109,7 +109,7 @@ localAPIEndpoint:
   advertiseAddress: 192.168.218.171
   bindPort: 6443
 nodeRegistration:
-  name: control1.k.erusnikov.ru
+  name: control1.k.erushnikov.ru
   criSocket: "unix:///var/run/containerd/containerd.sock"
   imagePullPolicy: IfNotPresent
   taints:

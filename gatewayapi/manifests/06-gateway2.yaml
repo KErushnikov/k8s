@@ -29,7 +29,7 @@ spec:
       protocol: HTTPS
       port: 8443
       # hostaname для HTTPS и TLS listeners обязательно!
-      hostname: sample.k.erusnikov.ru
+      hostname: sample.k.erushnikov.ru
       tls:
         mode: Terminate
         certificateRefs:
@@ -42,7 +42,7 @@ spec:
       protocol: HTTPS
       port: 8443
       # hostaname для HTTPS и TLS listeners обязательно!
-      hostname: sample2.k.erusnikov.ru
+      hostname: sample2.k.erushnikov.ru
       tls:
         mode: Terminate
         certificateRefs:

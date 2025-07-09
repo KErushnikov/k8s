@@ -18,8 +18,8 @@ data:
     plugins = /var/lib/grafana/plugins
     provisioning = /etc/grafana/provisioning
     [server]
-    domain = grafana.k.erusnikov.ru
-    root_url = https://grafana.k.erusnikov.ru
+    domain = grafana.k.erushnikov.ru
+    root_url = https://grafana.k.erushnikov.ru
   datasources.yaml: |
     apiVersion: 1
     datasources:

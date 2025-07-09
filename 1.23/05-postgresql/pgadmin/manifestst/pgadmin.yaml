@@ -94,7 +94,7 @@ metadata:
 spec:
   ingressClassName: system-ingress
   rules:
-    - host: pg.k.erusnikov.ru
+    - host: pg.k.erushnikov.ru
       http:
         paths:
           - pathType: Prefix

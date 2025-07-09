@@ -1,25 +1,25 @@
 ### 04-http-https-route.yaml
-GET http://testapp.k.erusnikov.ru
+GET http://testapp.k.erushnikov.ru
 
 ###  05-path-redirect.yaml
-GET https://testapp.k.erusnikov.ru/auth
+GET https://testapp.k.erushnikov.ru/auth
 ###
-GET https://testapp.k.erusnikov.ru/login
+GET https://testapp.k.erushnikov.ru/login
 
 ### 06-rewrite.yaml
-GET https://testapp.k.erusnikov.ru/login/22/12
+GET https://testapp.k.erushnikov.ru/login/22/12
 
 ### 07-header-modifiers.yaml
-GET https://testapp.k.erusnikov.ru/
+GET https://testapp.k.erushnikov.ru/
 
 ### 08-canary.yaml
 ### Old app
-GET https://testapp.k.erusnikov.ru/
+GET https://testapp.k.erushnikov.ru/
 
 ### New app
-GET https://testapp.k.erusnikov.ru/
+GET https://testapp.k.erushnikov.ru/
 app-version: new
 
 ### 09-blue-green.yaml
 ### Повторять запрос минимум 10-ть раз.
-GET https://testapp.k.erusnikov.ru/
+GET https://testapp.k.erushnikov.ru/

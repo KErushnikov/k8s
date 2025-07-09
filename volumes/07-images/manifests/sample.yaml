@@ -37,11 +37,11 @@ spec:
       volumes:
       - name: nginx-persistent-storage
         image: 
-          reference: registry-cl.k.erusnikov.ru/library/files:1.0.0
+          reference: registry-cl.k.erushnikov.ru/library/files:1.0.0
           pullPolicy: IfNotPresent
       containers:
       - name: nginx
-        image: registry-cl.k.erusnikov.ru/library/nginx:1.27.1
+        image: registry-cl.k.erushnikov.ru/library/nginx:1.27.1
         ports:
         - containerPort: 80
         volumeMounts:

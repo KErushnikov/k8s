@@ -67,7 +67,7 @@ spec:
     - server auth
     - client auth
   dnsNames:
-  - argocd.k.erusnikov.ru
+  - argocd.k.erushnikov.ru
   ipAddresses:
     - 192.168.218.181
   issuerRef:

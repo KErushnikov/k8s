@@ -19,7 +19,7 @@ spec:
           value: "false"
 
         - name: externalURL
-          value: http://harbor.k.erusnikov.ru
+          value: http://harbor.k.erushnikov.ru
 
         - name: persistence.persistentVolumeClaim.registry.storageClass
           value: managed-nfs-storage

@@ -71,7 +71,7 @@ apiVersion: storage.k8s.io/v1
 kind: StorageClass
 metadata:
   name: managed-nfs-storage
-provisioner: k.erusnikov.ru/nfs
+provisioner: k.erushnikov.ru/nfs
 parameters:
   onDelete: delete
 ---
@@ -105,7 +105,7 @@ spec:
               mountPath: /persistentvolumes
           env:
             - name: PROVISIONER_NAME
-              value: k.erusnikov.ru/nfs
+              value: k.erushnikov.ru/nfs
             - name: NFS_SERVER
               value: 192.168.218.170
             - name: NFS_PATH

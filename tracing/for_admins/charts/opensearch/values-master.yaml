@@ -183,11 +183,11 @@ ingress:
     nginx.ingress.kubernetes.io/proxy-ssl-verify: "off"
   path: /
   hosts:
-    - esapi.k.erusnikov.ru
+    - esapi.k.erushnikov.ru
   tls:
     - secretName: master-tls
       hosts:
-        - esapi.k.erusnikov.ru
+        - esapi.k.erushnikov.ru
 
 ## Set optimal sysctl's. This requires privilege. Can be disabled if
 ## the system has already been preconfigured. (Ex: https://www.elastic.co/guide/en/elasticsearch/reference/current/vm-max-map-count.html)

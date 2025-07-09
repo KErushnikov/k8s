@@ -149,7 +149,7 @@ metadata:
     certmanager.k8s.io/cluster-issuer: monitoring-issuer
 spec:
   rules:
-    - host: "application.k.erusnikov.ru"
+    - host: "application.k.erushnikov.ru"
       http:
         paths:
           - pathType: Prefix

@@ -24,11 +24,11 @@
 ## Метки на node
 Поставить label на node.
 
-`kubectl label nodes node3.k.erusnikov.ru directory=centos`
+`kubectl label nodes node3.k.erushnikov.ru directory=centos`
 
 Удалит метку с node
 
-`kubectl label nodes node3.k.erusnikov.ru directory-`
+`kubectl label nodes node3.k.erushnikov.ru directory-`
 
 ## Видео
 https://youtu.be/FiAMIDYQmt0

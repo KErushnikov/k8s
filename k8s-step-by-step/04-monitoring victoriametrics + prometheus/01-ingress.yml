@@ -11,10 +11,10 @@ metadata:
 spec:
   tls:
     - hosts:
-        - mon.k.erusnikov.ru
+        - mon.k.erushnikov.ru
       secretName: mon-tls
   rules:
-    - host: "mon.k.erusnikov.ru"
+    - host: "mon.k.erushnikov.ru"
       http:
         paths:
           - pathType: Prefix

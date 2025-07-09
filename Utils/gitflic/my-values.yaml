@@ -12,7 +12,7 @@ ingress:
   enabled: true
   className: "system-ingress"
   hosts:
-    - host: gitflic.k.erusnikov.ru
+    - host: gitflic.k.erushnikov.ru
       paths:
         - path: /
           pathType: ImplementationSpecific
@@ -61,8 +61,8 @@ volumes:
 
 config:
   url:
-    base: "http://gitflic.k.erusnikov.ru"
-    transport: "gitflic.k.erusnikov.ru"
+    base: "http://gitflic.k.erushnikov.ru"
+    transport: "gitflic.k.erushnikov.ru"
 
 mailRelay:
   builtin: true

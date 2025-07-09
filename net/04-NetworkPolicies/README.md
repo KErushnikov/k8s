@@ -47,15 +47,15 @@ kubectl apply -f argoapp/01.yaml -f argoapp/02.yaml -f argoapp/03.yaml
 По умолчанию доступ к приложению открыт:
 
 ```shell
-curl -s http://example.k.erusnikov.ru | jq
+curl -s http://example.k.erushnikov.ru | jq
 ```
 
 ```shell
-curl -s http://example.k.erusnikov.ru/app2 | jq
+curl -s http://example.k.erushnikov.ru/app2 | jq
 ```
 
 ```shell
-curl -s http://example.k.erusnikov.ru/nginx | jq
+curl -s http://example.k.erushnikov.ru/nginx | jq
 ```
 
 ### Deny All
@@ -92,7 +92,7 @@ kubectl -n app2 get networkpolicies
 Проверим, что выдаст приложение.
 
 ```shell
-curl -s http://example.k.erusnikov.ru/app2 | jq
+curl -s http://example.k.erushnikov.ru/app2 | jq
 ```
 
 После задержки, вызванной невозможностью из app1 получить доступ к приложениям в namespace app2, поучим сообщение об 
@@ -196,7 +196,7 @@ kubectl apply -f np/np-02.yaml
 Проверим, что выдаст наше приложение.
 
 ```shell
-curl -s http://example.k.erusnikov.ru/app2 | jq
+curl -s http://example.k.erushnikov.ru/app2 | jq
 ```
 
 Запустим приложение в namespace default:
@@ -438,7 +438,7 @@ kubectl apply -f np/np-05.yaml
 Попробуем подключиться из приложения app1 к app2:
 
 ```shell
-curl -s http://example.k.erusnikov.ru/app2 | jq
+curl -s http://example.k.erushnikov.ru/app2 | jq
 ```
 
 В результате ничего не получилось. К сожалению приложение uniproxy в ответе не показывает причину ошибки.
@@ -481,7 +481,7 @@ kubectl apply -f np/np-06.yaml
 Попробуем подключиться из приложения app1 к app2:
 
 ```shell
-curl -s http://example.k.erusnikov.ru/app2 | jq
+curl -s http://example.k.erushnikov.ru/app2 | jq
 ```
 
 ## Видео

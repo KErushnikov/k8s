@@ -41,20 +41,20 @@ cp -r kubespray/inventory/sample kubespray/inventory/cluster-5
 cd kubespray/inventory/cluster-5
 cat >inventory.ini<<EOF
 [all]
-control.k.erusnikov.ru ansible_host=192.168.218.190
-node1.k.erusnikov.ru ansible_host=192.168.218.191
-node2.k.erusnikov.ru ansible_host=192.168.218.192
-node3.k.erusnikov.ru ansible_host=192.168.218.193
-db1.k.erusnikov.ru ansible_host=192.168.218.194
+control.k.erushnikov.ru ansible_host=192.168.218.190
+node1.k.erushnikov.ru ansible_host=192.168.218.191
+node2.k.erushnikov.ru ansible_host=192.168.218.192
+node3.k.erushnikov.ru ansible_host=192.168.218.193
+db1.k.erushnikov.ru ansible_host=192.168.218.194
 [kube-master]
-control.k.erusnikov.ru
+control.k.erushnikov.ru
 [etcd]
-control.k.erusnikov.ru
+control.k.erushnikov.ru
 [kube-node]
-node1.k.erusnikov.ru
-node2.k.erusnikov.ru
-node3.k.erusnikov.ru
-db1.k.erusnikov.ru
+node1.k.erushnikov.ru
+node2.k.erushnikov.ru
+node3.k.erushnikov.ru
+db1.k.erushnikov.ru
 [k8s-cluster:children]
 kube-master
 kube-node
@@ -105,9 +105,9 @@ zone "." IN {
         file "named.ca";
 };
 
-zone "k.erusnikov.ru" IN {
+zone "k.erushnikov.ru" IN {
         type master;
-        file "k.erusnikov.ru";
+        file "k.erushnikov.ru";
 };
 
 zone "218.168.192.in-addr.arpa" IN {
@@ -118,9 +118,9 @@ include "/etc/named.rfc1912.zones";
 include "/etc/named.root.key";
 EOF
 
-cat > /var/named/k.erusnikov.ru <<EOF
+cat > /var/named/k.erushnikov.ru <<EOF
 \$TTL 86400
-@ IN SOA master.k.erusnikov.ru. artur.kryukov.biz. (
+@ IN SOA master.k.erushnikov.ru. artur.kryukov.biz. (
                                                 2021073101 ;Serial
                                                 3600 ;Refresh
                                                 1800 ;Retry
@@ -143,20 +143,20 @@ EOF
 
 cat > /var/named/218 <<EOF
 \$TTL 86400
-@ IN SOA master.k.erusnikov.ru. artur.kryukov.biz. (
+@ IN SOA master.k.erushnikov.ru. artur.kryukov.biz. (
                                             2021012100 ;Serial
                                             3600 ;Refresh
                                             1800 ;Retry
                                             604800 ;Expire
                                             86400 ;Minimum TTL
 )
-@ IN NS master.k.erusnikov.ru.
-195 IN PTR master.k.erusnikov.ru.
-190     IN      PTR     control.k.erusnikov.ru.
-191     IN      PTR     node1.k.erusnikov.ru.
-192     IN      PTR     node2.k.erusnikov.ru.
-193     IN      PTR     node3.k.erusnikov.ru.
-194     IN      PTR     db.k.erusnikov.ru.
+@ IN NS master.k.erushnikov.ru.
+195 IN PTR master.k.erushnikov.ru.
+190     IN      PTR     control.k.erushnikov.ru.
+191     IN      PTR     node1.k.erushnikov.ru.
+192     IN      PTR     node2.k.erushnikov.ru.
+193     IN      PTR     node3.k.erushnikov.ru.
+194     IN      PTR     db.k.erushnikov.ru.
 EOF
 
 systemctl start named

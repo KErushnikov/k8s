@@ -12,9 +12,9 @@
 3. Настройка kubespray на использование хранилища.
 
 В нашем тестовом варианте подготовка файлов приложений, образов контейнеров и развёртывание хранилища
-будет производиться на одном и том же сервере: starter.k.erusnikov.ru
+будет производиться на одном и том же сервере: starter.k.erushnikov.ru
 
-В DNS, отвечающем за зону k.erusnikov.ru, добавлены две машины starter и nexus. Где nexus - это запись CNAME,
+В DNS, отвечающем за зону k.erushnikov.ru, добавлены две машины starter и nexus. Где nexus - это запись CNAME,
 ссылающаяся на машину starter.
 
 Для быстрой установки будет использоваться ansible. Файлы плейбуков находятся в директории 00-ansible.
@@ -75,13 +75,13 @@
 
 ```ini
 [all]
-starter.k.erusnikov.ru ansible_host=192.168.218.178
+starter.k.erushnikov.ru ansible_host=192.168.218.178
 [kube_control_plane]
-starter.k.erusnikov.ru
+starter.k.erushnikov.ru
 [etcd]
-starter.k.erusnikov.ru
+starter.k.erushnikov.ru
 [kube_node]
-starter.k.erusnikov.ru
+starter.k.erushnikov.ru
 [calico_rr]
 [k8s_cluster:children]
 kube_control_plane
@@ -92,7 +92,7 @@ calico_rr
 Сгенерируем ssh ключ и скопируем его на этот же сервер:
 
     ssh-keygen
-    ssh-copy-id starter.k.erusnikov.ru
+    ssh-copy-id starter.k.erushnikov.ru
 
 Установим необходимые зависимости:
 
@@ -168,13 +168,13 @@ kubernetes. Для этого воспользуемся простейшим п
 
 Прежде чем мы их загрузим, залогинимся в хранилище контейнеров. 
 
-    docker login --username=docker-user --password=password starter.k.erusnikov.ru
+    docker login --username=docker-user --password=password starter.k.erushnikov.ru
 
 tags.sh
 
 ```bash
 #!/usr/bin/env bash
-DOCKER_HUB="starter.k.erusnikov.ru"
+DOCKER_HUB="starter.k.erushnikov.ru"
 cd
 echo "Load images from files"
 for I in $(ls k8s-images); do
@@ -201,7 +201,7 @@ done
 upload-file.sh
 ```bash
 #!/usr/bin/env bash
-NEXUS=nexus.k.erusnikov.ru
+NEXUS=nexus.k.erushnikov.ru
 SRC_DIR=/root/docker-images
 KUBE_VERSION=v1.23.5
 cd
@@ -223,9 +223,9 @@ done
 
 Ниже приведены только значащие строки из итогового offline.yml
 ```yaml
-registry_host: "starter.k.erusnikov.ru"
-files_repo: "http://docker-user:password@nexus.k.erusnikov.ru/repository/files/k8s"
-yum_repo: "http://nexus.k.erusnikov.ru/rpm"
+registry_host: "starter.k.erushnikov.ru"
+files_repo: "http://docker-user:password@nexus.k.erushnikov.ru/repository/files/k8s"
+yum_repo: "http://nexus.k.erushnikov.ru/rpm"
 kube_image_repo: "{{ registry_host }}"
 gcr_image_repo: "{{ registry_host }}"
 github_image_repo: "{{ registry_host }}"
@@ -247,9 +247,9 @@ nerdctl_download_url: "{{ files_repo }}/{{ kube_version }}/nerdctl-{{ nerdctl_ve
 
 ```yaml
 containerd_registries:
-   "starter.k.erusnikov.ru": "https://starter.k.erusnikov.ru"
+   "starter.k.erushnikov.ru": "https://starter.k.erushnikov.ru"
 containerd_registry_auth:
-   - registry: "starter.k.erusnikov.ru"
+   - registry: "starter.k.erushnikov.ru"
      username: docker-user
      password: password
 ```

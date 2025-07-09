@@ -10,10 +10,10 @@ metadata:
 spec:
   tls:
     - hosts:
-      - netdata.k.erusnikov.ru
+      - netdata.k.erushnikov.ru
       secretName: mon-tls
   rules:
-    - host: "netdata.k.erusnikov.ru"
+    - host: "netdata.k.erushnikov.ru"
       http:
         paths:
           - path: /

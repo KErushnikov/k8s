@@ -9,7 +9,7 @@ metadata:
 spec:
   ingressClassName: system-ingress
   rules:
-  - host: argocd-dev.k.erusnikov.ru
+  - host: argocd-dev.k.erushnikov.ru
     http:
       paths:
       - pathType: Prefix
@@ -21,5 +21,5 @@ spec:
              name: https
   tls:
   - hosts:
-    - argocd-dev.k.erusnikov.ru
+    - argocd-dev.k.erushnikov.ru
     secretName: argocd-tls

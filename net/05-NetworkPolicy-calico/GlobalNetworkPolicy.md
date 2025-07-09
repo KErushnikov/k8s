@@ -127,7 +127,7 @@ kubectl run -it --rm --restart=Never --image=infoblox/dnstools:latest dnstools
 Проверим:
 
 ```shell
-curl -s http://example.k.erusnikov.ru/
+curl -s http://example.k.erushnikov.ru/
 ```
 
 ```yaml
@@ -166,17 +166,17 @@ calicoctl apply -f np/np-04.yaml
 Проверяем:
 
 ```shell
-curl -s http://example.k.erusnikov.ru/ | jq
+curl -s http://example.k.erushnikov.ru/ | jq
 ```
 
 ```shell
-curl -s http://example.k.erusnikov.ru/app2 | jq
+curl -s http://example.k.erushnikov.ru/app2 | jq
 ```
 
 И тут:
 
 ```shell
-curl -s http://example.k.erusnikov.ru/nginx | jq
+curl -s http://example.k.erushnikov.ru/nginx | jq
 ```
 
 Добавим политику Ingress в namespaces app2:
@@ -205,7 +205,7 @@ calicoctl apply -f np/np-05.yaml
 Еще раз проверяем.
 
 ```shell
-curl -s http://example.k.erusnikov.ru/nginx | jq
+curl -s http://example.k.erushnikov.ru/nginx | jq
 ```
 
 ## Dev окружение
@@ -300,7 +300,7 @@ calicoctl apply -f np/np-07.yaml
 Проверяем работу политики:
 
 ```shell
-curl -s http://example.k.erusnikov.ru/ | jq
+curl -s http://example.k.erushnikov.ru/ | jq
 ```
 
 Что то пошло не так.

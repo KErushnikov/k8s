@@ -8,14 +8,14 @@
 ```
 kubectl get nodes
 NAME                     STATUS   ROLES                  AGE   VERSION
-control1.k.erusnikov.ru   Ready    control-plane,master   18h   v1.23.1
-db1.k.erusnikov.ru        Ready    <none>                 18h   v1.23.1
-worker1.k.erusnikov.ru    Ready    <none>                 18h   v1.23.1
-worker2.k.erusnikov.ru    Ready    <none>                 18h   v1.23.1
-worker3.k.erusnikov.ru    Ready    <none>                 18h   v1.23.1
+control1.k.erushnikov.ru   Ready    control-plane,master   18h   v1.23.1
+db1.k.erushnikov.ru        Ready    <none>                 18h   v1.23.1
+worker1.k.erushnikov.ru    Ready    <none>                 18h   v1.23.1
+worker2.k.erushnikov.ru    Ready    <none>                 18h   v1.23.1
+worker3.k.erushnikov.ru    Ready    <none>                 18h   v1.23.1
 ```
 
-_**Внимание!** У меня поднят DNS сервер, поддерживающий домен k.erusnikov.ru. Учтите это, когда будете читать данную ветку._
+_**Внимание!** У меня поднят DNS сервер, поддерживающий домен k.erushnikov.ru. Учтите это, когда будете читать данную ветку._
 
 _Эта ветка документации имеет справочный характер, видео по ней не будет._
 

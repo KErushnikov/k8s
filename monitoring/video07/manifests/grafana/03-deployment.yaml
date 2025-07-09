@@ -26,10 +26,10 @@ spec:
   ingressClassName: system-ingress
   tls:
     - hosts:
-        - "grafana.k.erusnikov.ru"
+        - "grafana.k.erushnikov.ru"
       secretName: grafana-tls
   rules:
-    - host: "grafana.k.erusnikov.ru"
+    - host: "grafana.k.erushnikov.ru"
       http:
         paths:
           - path: /

@@ -10,10 +10,10 @@
 
 Вешаем заразы и метки на ноды кластера.
 
-    kubectl taint nodes db1.k.erusnikov.ru db=pgsql:NoSchedule
-    kubectl taint nodes db2.k.erusnikov.ru db=pgsql:NoSchedule
-    kubectl label nodes db1.k.erusnikov.ru db=pgsql-main
-    kubectl label nodes db2.k.erusnikov.ru db=pgsql-repl
+    kubectl taint nodes db1.k.erushnikov.ru db=pgsql:NoSchedule
+    kubectl taint nodes db2.k.erushnikov.ru db=pgsql:NoSchedule
+    kubectl label nodes db1.k.erushnikov.ru db=pgsql-main
+    kubectl label nodes db2.k.erushnikov.ru db=pgsql-repl
 
 Создаём директории для локальных PV:
 

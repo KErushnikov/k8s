@@ -5,7 +5,7 @@
 Сначала удаляем ноду из кластера.
 
 ```shell
-kubectl delete node worker1.k.erusnikov.ru
+kubectl delete node worker1.k.erushnikov.ru
 ```
 
 Затем на самой ноде удалем приложения кластера.
@@ -48,7 +48,7 @@ kubectl -n kube-system get pods | grep etcd
 Получаем список членов кластера etcd. Нам нужен id неработающего сервера.
 
 ```shell
-kubectl -n kube-system exec etcd-control1.k.erusnikov.ru -- etcdctl \
+kubectl -n kube-system exec etcd-control1.k.erushnikov.ru -- etcdctl \
   --endpoints '192.168.218.171:2379' \
   --cacert /etc/kubernetes/pki/etcd/ca.crt \
   --key /etc/kubernetes/pki/etcd/server.key \
@@ -59,7 +59,7 @@ kubectl -n kube-system exec etcd-control1.k.erusnikov.ru -- etcdctl \
 Удаляем неработающий сервер из списка.
 
 ```shell
-kubectl -n kube-system exec etcd-control1.k.erusnikov.ru -- etcdctl \
+kubectl -n kube-system exec etcd-control1.k.erushnikov.ru -- etcdctl \
   --endpoints '192.168.218.171:2379' \
   --cacert /etc/kubernetes/pki/etcd/ca.crt \
   --key /etc/kubernetes/pki/etcd/server.key \

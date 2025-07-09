@@ -59,14 +59,14 @@ data:
   config.yaml: |
     client-id: myapp
     client-secret: 4b86bbf0-98d7-46f5-a221-aca4ace8a932
-    discovery-url: http://keycloak.k.erusnikov.ru/iam/auth/realms/app
+    discovery-url: http://keycloak.k.erushnikov.ru/iam/auth/realms/app
     enable-metrics: true
     enable-refresh-tokens: true
     encryption-key: AgXa7xRcoClKEU0AHSH4X0XhL5Qy2Z2j
     skip-openid-provider-tls-verify: true
     listen: :3000
     listen-admin: :4000
-    redirection-url: https://application.k.erusnikov.ru
+    redirection-url: https://application.k.erushnikov.ru
     resources:
     - uri: /index.html
       white-listed: true

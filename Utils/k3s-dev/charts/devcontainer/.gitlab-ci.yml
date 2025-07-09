@@ -5,7 +5,7 @@ chart:
   stage: build
   image:
     # https://github.com/GoogleContainerTools/kaniko/releases
-    name: registry.k.erusnikov.ru/library/kubeutils:1.28.6
+    name: registry.k.erushnikov.ru/library/kubeutils:1.28.6
     entrypoint: [""]
   tags:
     - default
@@ -16,7 +16,7 @@ chart:
     - echo "Build chart"
     - export CHART_VERSION=$(cat devcontainer/Chart.yaml | grep version | cut -f2 -d':' | cut -c2-)
     - helm package devcontainer
-    - helm push devcontainer-${CHART_VERSION}.tgz oci://registry.k.erusnikov.ru/charts
+    - helm push devcontainer-${CHART_VERSION}.tgz oci://registry.k.erushnikov.ru/charts
   when: manual
   only:
     - web
