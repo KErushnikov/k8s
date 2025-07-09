@@ -11,9 +11,6 @@ victoria-metrics-single:
       loggerLevel: "INFO"
     persistentVolume:
       enabled: false  # disables chart-generated PVC
-    extraVolumeMounts:
-      - name: vm-data
-        mountPath: /storage  # default mount in VictoriaMetrics
     extraVolumes:
       - name: vm-data
         persistentVolumeClaim:
