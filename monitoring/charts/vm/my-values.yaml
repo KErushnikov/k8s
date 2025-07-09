@@ -29,7 +29,7 @@ victoria-metrics-single:
       hosts:
         - name: "vm.k.erusnikov.ru"
           path: /
-          port: 9090
+          port: http
       tls:
         - secretName: "wildcard-k-erushnikov-ru"
           hosts:
