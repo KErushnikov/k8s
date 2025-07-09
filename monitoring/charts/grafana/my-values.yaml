@@ -21,12 +21,6 @@ grafana:
     pspEnabled: false
     pspUseAppArmor: false
     namespaced: false
-  
-  initChownData:
-    ## If false, data ownership will not be reset at startup
-    ## This allows the prometheus-server to be run with an arbitrary user
-    ##
-    enabled: false
 
   revisionHistoryLimit: 3
   testFramework:
@@ -41,9 +35,12 @@ grafana:
       cpu: 100m
       memory: 128Mi
   persistence:
-    type: pvc
     enabled: true
-    existingClaim: vm-data-pvc
+    storageClassName: local-path
+    accessModes:
+      - ReadWriteOnce
+    size: 2Gi
+    existingClaim: ""
   datasources:
     datasources.yaml:
       apiVersion: 1
