@@ -8,6 +8,14 @@ victoria-metrics-agent:
   nameOverride: "vmagent-sys"
   fullnameOverride: "vmagent-sys"
 
+  rbac:
+    ## If true, create & use RBAC resources
+    ##
+    create: true
+    ## If true, create & use Pod Security Policy resources
+    ## https://kubernetes.io/docs/concepts/policy/pod-security-policy/
+    pspEnabled: false
+
   # Это параметр зависит от установки victoriametrics
   remoteWriteUrls:
     - http://victoriametrics-victoria-metrics-single-server:8428/api/v1/write
@@ -43,9 +51,6 @@ victoria-metrics-agent:
 
     persistentVolume:
       enabled: false  # disables chart-generated PVC
-    extraVolumeMounts:
-      - name: vmagent-storage
-        mountPath: /vmagentdata  # ← default dir for vmagent data
     extraVolumes:
       - name: vmagent-storage
         persistentVolumeClaim:
