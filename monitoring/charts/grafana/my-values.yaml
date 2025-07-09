@@ -1,8 +1,8 @@
 ingress:
   enabled: true
-  ingressClassName: system-ingress
+  ingressClassName: traefik
   annotations:
-    certmanager.k8s.io/cluster-issuer: monitoring-issuer
+    certmanager.k8s.io/cluster-issuer: letsencrypt-prod
   hosts:
     - host: grafana.k.erushnikov.ru
       paths:
@@ -11,9 +11,16 @@ ingress:
   tls:
     - hosts:
       - grafana.k.erushnikov.ru
-      secretName: grafana-tls
+      secretName: wildcard-k-erushnikov-ru
 
 grafana:
+  rbac:
+    create: true
+    ## Use an existing ClusterRole/Role (depending on rbac.namespaced false/true)
+    # useExistingRole: name-of-some-(cluster)role
+    pspEnabled: false
+    pspUseAppArmor: false
+    namespaced: false
   revisionHistoryLimit: 3
   testFramework:
     enabled: false
@@ -29,7 +36,7 @@ grafana:
   persistence:
     type: pvc
     enabled: true
-    storageClassName: managed-nfs-storage
+    storageClassName: davfs2
     accessModes:
       - ReadWriteOnce
     size: 2Gi
