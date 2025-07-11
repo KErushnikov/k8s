@@ -23,7 +23,9 @@ spec:
                 echo "Restoring vaultwarden data to /data/vaultwarden ..."
                 mkdir -p /data/vaultwarden && \
                 tar -xzf /backup/vaultwarden_data_backup.tar.gz -C /data/vaultwarden && \
-                touch /data/vaultwarden/vaultwarden_data_restored
+                chown -R 1005:1005 /data/vaultwarden && \
+                touch /data/vaultwarden/vaultwarden_data_restored && \
+                chown 1005:1005 /data/vaultwarden/vaultwarden_data_restored
               else
                 echo "Data already restored, skipping."
               fi
