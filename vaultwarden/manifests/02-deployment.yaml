@@ -19,11 +19,11 @@ spec:
             - sh
             - -c
             - |
-              if [ ! -f /data/PVC/vaultwarden/vaultwarden_data_restored ]; then
-                echo "Restoring vaultwarden data to /data/PVC/vaultwarden ..."
-                mkdir -p /data/PVC/vaultwarden && \
-                tar -xzf /backup/vaultwarden_data_backup.tar.gz -C /data/PVC/vaultwarden && \
-                touch /data/PVC/vaultwarden/vaultwarden_data_restored
+              if [ ! -f /data/vaultwarden/vaultwarden_data_restored ]; then
+                echo "Restoring vaultwarden data to /data/vaultwarden ..."
+                mkdir -p /data/vaultwarden && \
+                tar -xzf /backup/vaultwarden_data_backup.tar.gz -C /data/vaultwarden && \
+                touch /data/vaultwarden/vaultwarden_data_restored
               else
                 echo "Data already restored, skipping."
               fi
@@ -41,7 +41,7 @@ spec:
             - name: DOMAIN
               value: "https://pass.k.erushnikov.ru"
             - name: DATA_FOLDER
-              value: "/data/PVC/vaultwarden"
+              value: "/data/vaultwarden"
           volumeMounts:
             - mountPath: /data
               name: data
