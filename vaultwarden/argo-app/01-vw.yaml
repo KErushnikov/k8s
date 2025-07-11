@@ -4,14 +4,14 @@ metadata:
   name: vaultwarden
   namespace: argocd
 spec:
-  destination:
-    namespace: personal
-    server: 'https://kubernetes.default.svc'
+  project: personal
   source:
     repoURL: 'https://github.com/KErushnikov/k8s'
     targetRevision: master
     path: vaultwarden/manifests
-  project: personal
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: personal
   syncPolicy:
     automated:
       prune: true

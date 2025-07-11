@@ -1,0 +1,52 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: vaultwarden
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: vaultwarden
+  template:
+    metadata:
+      labels:
+        app: vaultwarden
+    spec:
+      initContainers:
+        - name: restore-data
+          image: alpine
+          command:
+            - sh
+            - -c
+            - |
+              if [ ! -f /data/PVC/vaultwarden_data_restored ]; then
+                echo "Restoring vaultwarden data..."
+                tar -xzf /backup/vaultwarden_data_backup.tar.gz -C /data/PVC && \
+                touch /data/PVC/vaultwarden_data_restored
+              else
+                echo "Data already restored, skipping."
+              fi
+          volumeMounts:
+            - name: data
+              mountPath: /data/PVC
+            - name: backup
+              mountPath: /backup
+      containers:
+        - name: vaultwarden
+          image: vaultwarden/server:latest
+          ports:
+            - containerPort: 80
+          env:
+            - name: DOMAIN
+              value: "https://pass.k.erushnikov.ru"
+          volumeMounts:
+            - mountPath: /data/PVC
+              name: data
+      volumes:
+        - name: data
+          persistentVolumeClaim:
+            claimName: vaultwarden-data
+        - name: backup
+          hostPath:
+            path: /data/PVC/vaultwarden_data_backup.tar.gz
+            type: File
