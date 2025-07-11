@@ -2,17 +2,16 @@ apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
   name: vaultwarden
-  labels:
-    app: default
+  namespace: argocd
 spec:
   destination:
-    namespace: default
+    namespace: personal
     server: 'https://kubernetes.default.svc'
   source:
     repoURL: 'https://github.com/KErushnikov/k8s'
     targetRevision: master
     path: vaultwarden/manifests
-  project: default
+  project: personal
   syncPolicy:
     automated:
       prune: true
