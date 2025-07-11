@@ -19,16 +19,17 @@ spec:
             - sh
             - -c
             - |
-              if [ ! -f /data/PVC/vaultwarden_data_restored ]; then
-                echo "Restoring vaultwarden data..."
-                tar -xzf /backup/vaultwarden_data_backup.tar.gz -C /data/PVC && \
-                touch /data/PVC/vaultwarden_data_restored
+              if [ ! -f /data/PVC/vaultwarden/vaultwarden_data_restored ]; then
+                echo "Restoring vaultwarden data to /data/PVC/vaultwarden ..."
+                mkdir -p /data/PVC/vaultwarden && \
+                tar -xzf /backup/vaultwarden_data_backup.tar.gz -C /data/PVC/vaultwarden && \
+                touch /data/PVC/vaultwarden/vaultwarden_data_restored
               else
                 echo "Data already restored, skipping."
               fi
           volumeMounts:
             - name: data
-              mountPath: /data/PVC
+              mountPath: /data
             - name: backup
               mountPath: /backup
       containers:
@@ -39,8 +40,10 @@ spec:
           env:
             - name: DOMAIN
               value: "https://pass.k.erushnikov.ru"
+            - name: DATA_FOLDER
+              value: "/data/PVC/vaultwarden"
           volumeMounts:
-            - mountPath: /data/PVC
+            - mountPath: /data
               name: data
       volumes:
         - name: data
@@ -48,5 +51,5 @@ spec:
             claimName: vaultwarden-data
         - name: backup
           hostPath:
-            path: /data/PVC/vaultwarden_data_backup.tar.gz
+            path: /data/PVC/vaultwarden/vaultwarden_data_backup.tar.gz
             type: File
