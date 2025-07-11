@@ -5,7 +5,7 @@ metadata:
 spec:
   accessModes:
     - ReadWriteOnce
-  storageClassName: davfs2
+  volumeName: vaultwarden-pv  # binds directly to PV
   resources:
     requests:
       storage: 1Gi
