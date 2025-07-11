@@ -51,5 +51,5 @@ spec:
             claimName: vaultwarden-data
         - name: backup
           hostPath:
-            path: /data/PVC/vaultwarden/vaultwarden_data_backup.tar.gz
-            type: File
+            path: /data/PVC/vaultwarden   # ✅ directory, not file
+            type: Directory
