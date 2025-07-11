@@ -5,7 +5,8 @@ metadata:
 spec:
   accessModes:
     - ReadWriteOnce
-  volumeName: vaultwarden-pv  # binds directly to PV
+  volumeName: vaultwarden-pv
+  storageClassName: ""  # 👈 Must match PV
   resources:
     requests:
       storage: 1Gi

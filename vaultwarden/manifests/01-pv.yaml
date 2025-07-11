@@ -8,5 +8,6 @@ spec:
   accessModes:
     - ReadWriteOnce
   persistentVolumeReclaimPolicy: Retain
+  storageClassName: ""  # 👈 Must be set to empty explicitly
   hostPath:
     path: /data/PVC
