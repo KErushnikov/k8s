@@ -1,0 +1,20 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: vault
+  namespace: argocd
+spec:
+  project: personal
+  source:
+    repoURL: 'https://github.com/KErushnikov/k8s'
+    targetRevision: master
+    path: vault-personal/manifests
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: personal
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=true

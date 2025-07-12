@@ -1,0 +1,64 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: vault
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: vault
+  template:
+    metadata:
+      labels:
+        app: vault
+    spec:
+      initContainers:
+        - name: restore-vault
+          image: alpine
+          command:
+            - sh
+            - -c
+            - |
+              if [ ! -f /vault/data/restored ]; then
+                echo "[*] Extracting Vault backup..." && \
+                tar -xzf /backup/vault_file_backup.tar.gz -C /vault/data && \
+                touch /vault/data/restored && \
+                echo "[*] Done."
+              else
+                echo "[*] Backup already restored."
+              fi
+          volumeMounts:
+            - name: vault-data
+              mountPath: /vault/data
+            - name: backup
+              mountPath: /backup
+
+      containers:
+        - name: vault
+          image: hashicorp/vault:1.16
+          ports:
+            - containerPort: 8200
+          env:
+            - name: VAULT_LOCAL_CONFIG
+              value: |
+                ui = true
+                storage "file" {
+                  path = "/vault/data"
+                }
+                listener "tcp" {
+                  address = "0.0.0.0:8200"
+                  tls_disable = "true"
+                }
+                api_addr = "https://vault.k.erushnikov.ru"
+                cluster_addr = "http://127.0.0.1:8201"
+          volumeMounts:
+            - name: vault-data
+              mountPath: /vault/data
+      volumes:
+        - name: vault-data
+          persistentVolumeClaim:
+            claimName: vault-data
+        - name: backup
+          hostPath:
+            path: /data/PVC/vault
+            type: Directory
