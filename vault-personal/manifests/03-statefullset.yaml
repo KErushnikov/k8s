@@ -2,7 +2,6 @@ apiVersion: apps/v1
 kind: StatefulSet
 metadata:
   name: vault
-  namespace: vault
 spec:
   serviceName: vault
   replicas: 1
@@ -68,6 +67,8 @@ spec:
         volumeMounts:
           - name: vault-data
             mountPath: /vault/data
+          - name: vault-config
+            mountPath: /vault/config
         securityContext:
           runAsUser: 1005
           runAsGroup: 1005
@@ -76,6 +77,10 @@ spec:
       - name: vault-backup
         hostPath:
           path: /PVC/vault
+          type: Directory
+      - name: vault-config
+        hostPath:
+          path: /PVC/vault/config
           type: Directory
       - name: vault-data
         persistentVolumeClaim:
