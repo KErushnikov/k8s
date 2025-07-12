@@ -16,81 +16,62 @@ spec:
       securityContext:
         fsGroup: 1005
       initContainers:
-      - name: copy-config
-        image: busybox:1.36
-        command:
-          - sh
-          - -c
-          - |
-            cp -r /vault/config-ro/* /vault/config/
-            chown -R 1005:1005 /vault/config
-        volumeMounts:
-          - name: vault-config-ro
-            mountPath: /vault/config-ro
-            readOnly: true
-          - name: vault-config
-            mountPath: /vault/config
-        securityContext:
-          runAsUser: 0
-          runAsGroup: 0
-          runAsNonRoot: false
-
-      - name: restore-perms
-        image: alpine:3.18
-        command:
-          - sh
-          - -c
-          - |
-            set -eux
-            if [ ! -f /vault/data/vault_data_restored ]; then
-              echo "Restoring Vault backup..."
-              tar -xzf /backup/vault_backup.tar.gz -C /vault/data
-              chown -R 1005:1005 /vault/data
-              touch /vault/data/vault_data_restored
-              echo "Restore complete."
-            else
-              echo "Backup already restored, skipping."
-            fi
-        volumeMounts:
-          - name: vault-backup
-            mountPath: /backup
-          - name: vault-data
-            mountPath: /vault/data
-        securityContext:
-          runAsUser: 0
-          runAsGroup: 0
-          runAsNonRoot: false
+        - name: restore-perms
+          image: alpine:3.18
+          command:
+            - sh
+            - -c
+            - |
+              set -eux
+              if [ ! -f /vault/data/vault_data_restored ]; then
+                echo "Restoring Vault backup..."
+                tar -xzf /backup/vault_backup.tar.gz -C /vault/data
+                chown -R 1005:1005 /vault/data
+                touch /vault/data/vault_data_restored
+                echo "Restore complete."
+              else
+                echo "Backup already restored, skipping."
+              fi
+          volumeMounts:
+            - name: vault-backup
+              mountPath: /backup
+            - name: vault-data
+              mountPath: /vault/data
+          securityContext:
+            runAsUser: 0
+            runAsGroup: 0
+            runAsNonRoot: false
 
       containers:
-      - name: vault
-        image: hashicorp/vault:1.20
-        ports:
-          - containerPort: 8200
-            name: vault-port
-        volumeMounts:
-          - name: vault-data
-            mountPath: /vault/data
-          - name: vault-config
-            mountPath: /vault/config
-            readOnly: false
-        securityContext:
-          runAsUser: 1005
-          runAsGroup: 1005
-          allowPrivilegeEscalation: false
-          capabilities:
-            add:
-              - SETFCAP
+        - name: vault
+          image: hashicorp/vault:1.20
+          ports:
+            - containerPort: 8200
+              name: vault-port
+          env:
+            - name: SKIP_CHOWN
+              value: "true"
+          volumeMounts:
+            - name: vault-data
+              mountPath: /vault/data
+            - name: vault-config
+              mountPath: /vault/config
+              readOnly: true
+          securityContext:
+            runAsUser: 1005
+            runAsGroup: 1005
+            allowPrivilegeEscalation: false
+            capabilities:
+              add: [ "SETFCAP" ]
 
       volumes:
-      - name: vault-backup
-        hostPath:
-          path: /PVC/vault
-          type: Directory
-      - name: vault-config-ro
-        configMap:
-          name: vault-config
-      - name: vault-config
-        emptyDir: {}
-      - name: vault-data
-        persistentVolumeClaim:
-          claimName: vault-data-pvc
+        - name: vault-backup
+          hostPath:
+            path: /PVC/vault
+            type: Directory
+        - name: vault-config
+          configMap:
+            name: vault-config
+        - name: vault-data
+          persistentVolumeClaim:
+            claimName: vault-data-pvc
