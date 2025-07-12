@@ -5,7 +5,7 @@ metadata:
 data:
   local.json: |
     {
-      "backend": {
+      "storage": {
         "file": {
           "path": "/vault/data"
         }
@@ -13,8 +13,10 @@ data:
       "listener": {
         "tcp": {
           "address": "0.0.0.0:8200",
-          "tls_disable": 1
+          "tls_disable": true
         }
       },
-      "ui": true
+      "disable_mlock": true,
+      "ui": true,
+      "api_addr": "https://vault.k.erushnikov.ru"
     }
