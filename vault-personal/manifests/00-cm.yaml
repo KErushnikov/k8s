@@ -7,7 +7,7 @@ data:
     {
       "backend": {
         "file": {
-          "path": "/vault/data/core"
+          "path": "/vault/data"
         }
       },
       "listener": {
