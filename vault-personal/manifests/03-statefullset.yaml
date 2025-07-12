@@ -3,11 +3,11 @@ kind: StatefulSet
 metadata:
   name: vault
 spec:
+  serviceName: vault
   replicas: 1
   selector:
     matchLabels:
       app: vault
-  serviceName: vault
   template:
     metadata:
       labels:
@@ -15,15 +15,28 @@ spec:
     spec:
       securityContext:
         fsGroup: 1005
-        runAsUser: 1005
-        runAsGroup: 1005
       initContainers:
-        - name: fix-permissions
-          image: busybox
-          command: ["sh", "-c", "chown -R 1005:1005 /vault/data"]
+        - name: restore-perms
+          image: alpine
+          command:
+            - sh
+            - -c
+            - |
+              echo "Restoring vault data..." && \
+              if [ ! -f /vault/data/vault_data_restored ]; then \
+                tar -xzf /backup/vault_backup.tar.gz -C /vault/data && \
+                chown -R 1005:1005 /vault/data && \
+                touch /vault/data/vault_data_restored; \
+              else \
+                echo "Already restored, skipping."; \
+              fi
+          securityContext:
+            runAsUser: 0
           volumeMounts:
             - name: vault-data
               mountPath: /vault/data
+            - name: vault-backup
+              mountPath: /backup
       containers:
         - name: vault
           image: hashicorp/vault:1.16
@@ -49,9 +62,11 @@ spec:
           volumeMounts:
             - name: vault-data
               mountPath: /vault/data
-          securityContext:
-            allowPrivilegeEscalation: false
       volumes:
         - name: vault-data
           persistentVolumeClaim:
             claimName: vault-data-pvc
+        - name: vault-backup
+          hostPath:
+            path: /PVC/vault/vault_backup.tar.gz
+            type: File
