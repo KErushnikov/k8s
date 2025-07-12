@@ -16,72 +16,58 @@ spec:
       securityContext:
         fsGroup: 1005
       initContainers:
-      - name: restore-perms
-        image: alpine:3.18
-        command:
-          - sh
-          - -c
-          - |
-            set -eux
-            if [ ! -f /vault/data/vault_data_restored ]; then
-              echo "Restoring Vault backup..."
-              tar -xzf /backup/vault_backup.tar.gz -C /vault/data
-              chown -R 1005:1005 /vault/data
-              touch /vault/data/vault_data_restored
-              echo "Restore complete."
-            else
-              echo "Backup already restored, skipping."
-            fi
-        volumeMounts:
-          - name: vault-backup
-            mountPath: /backup
-          - name: vault-data
-            mountPath: /vault/data
-        securityContext:
-          runAsUser: 0
-          runAsGroup: 0
-          runAsNonRoot: false
+        - name: restore-perms
+          image: alpine:3.18
+          command:
+            - sh
+            - -c
+            - |
+              set -eux
+              if [ ! -f /vault/data/vault_data_restored ]; then
+                echo "Restoring Vault backup..."
+                tar -xzf /backup/vault_backup.tar.gz -C /vault/data
+                chown -R 1005:1005 /vault/data
+                touch /vault/data/vault_data_restored
+                echo "Restore complete."
+              else
+                echo "Backup already restored, skipping."
+              fi
+          volumeMounts:
+            - name: vault-backup
+              mountPath: /backup
+            - name: vault-data
+              mountPath: /vault/data
+          securityContext:
+            runAsUser: 0
+            runAsGroup: 0
+            runAsNonRoot: false
       containers:
-      - name: vault
-        image: hashicorp/vault:1.20
-        ports:
-        - containerPort: 8200
-          name: vault-port
-        env:
-          - name: VAULT_LOCAL_CONFIG
-            value: |
-              {
-                "backend": {
-                  "file": {
-                    "path": "/vault/data/core"
-                  }
-                },
-                "listener": {
-                  "tcp": {
-                    "address": "0.0.0.0:8200",
-                    "tls_disable": 1
-                  }
-                },
-                "ui": true
-              }
-        volumeMounts:
-          - name: vault-data
-            mountPath: /vault/data
-          - name: vault-config
-            mountPath: /vault/config
-        securityContext:
-          runAsUser: 1005
-          runAsGroup: 1005
-          allowPrivilegeEscalation: false
+        - name: vault
+          image: hashicorp/vault:1.20
+          ports:
+            - containerPort: 8200
+              name: vault-port
+          volumeMounts:
+            - name: vault-data
+              mountPath: /vault/data
+            - name: vault-config
+              mountPath: /vault/config
+              readOnly: true
+          securityContext:
+            runAsUser: 1005
+            runAsGroup: 1005
+            allowPrivilegeEscalation: false
+            capabilities:
+              add:
+                - SETFCAP
       volumes:
-      - name: vault-backup
-        hostPath:
-          path: /PVC/vault
-          type: Directory
-      - name: vault-config
-        hostPath:
-          path: /PVC/vault/config
-          type: Directory
-      - name: vault-data
-        persistentVolumeClaim:
-          claimName: vault-data-pvc
+        - name: vault-backup
+          hostPath:
+            path: /PVC/vault
+            type: Directory
+        - name: vault-config
+          configMap:
+            name: vault-config
+        - name: vault-data
+          persistentVolumeClaim:
+            claimName: vault-data-pvc
