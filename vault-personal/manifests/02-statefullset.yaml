@@ -1,0 +1,51 @@
+# 02-vault-statefulset-fixed-pvc.yaml
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: vault
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: vault
+  serviceName: vault
+  template:
+    metadata:
+      labels:
+        app: vault
+    spec:
+      securityContext:
+        fsGroup: 1005
+      containers:
+        - name: vault
+          image: vault:latest
+          ports:
+            - containerPort: 8200
+          env:
+            - name: VAULT_LOCAL_CONFIG
+              value: |
+                {
+                  "storage": {
+                    "file": {
+                      "path": "/vault/data"
+                    }
+                  },
+                  "listener": {
+                    "tcp": {
+                      "address": "0.0.0.0:8200",
+                      "tls_disable": 1
+                    }
+                  },
+                  "ui": true
+                }
+          volumeMounts:
+            - name: vault-data
+              mountPath: /vault/data
+          securityContext:
+            runAsUser: 1005
+            runAsGroup: 1005
+            allowPrivilegeEscalation: false
+      volumes:
+        - name: vault-data
+          persistentVolumeClaim:
+            claimName: vault-data-pvc
