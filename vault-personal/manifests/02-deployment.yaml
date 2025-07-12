@@ -12,6 +12,8 @@ spec:
       labels:
         app: vault
     spec:
+      securityContext:
+        fsGroup: 100
       initContainers:
         - name: restore-vault
           image: alpine
@@ -32,7 +34,6 @@ spec:
               mountPath: /vault/data
             - name: backup
               mountPath: /backup
-
       containers:
         - name: vault
           image: hashicorp/vault:1.16
@@ -51,6 +52,9 @@ spec:
                 }
                 api_addr = "https://vault.k.erushnikov.ru"
                 cluster_addr = "http://127.0.0.1:8201"
+          securityContext:
+            capabilities:
+              add: ["IPC_LOCK"]
           volumeMounts:
             - name: vault-data
               mountPath: /vault/data
