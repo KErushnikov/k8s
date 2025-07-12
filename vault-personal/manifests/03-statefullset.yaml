@@ -44,6 +44,8 @@ spec:
       containers:
       - name: vault
         image: hashicorp/vault:1.20
+        command:
+          - "vault"
         args:
           - "server"
           - "-config=/vault/config/vault.hcl"
