@@ -68,5 +68,5 @@ spec:
             claimName: vault-data-pvc
         - name: vault-backup
           hostPath:
-            path: /PVC/vault/vault_backup.tar.gz
-            type: File
+            path: /PVC/vault
+            type: Directory
