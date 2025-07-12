@@ -4,14 +4,14 @@ metadata:
   name: vault
   namespace: argocd
 spec:
-  project: personal
+  project: vault
   source:
     repoURL: 'https://github.com/KErushnikov/k8s'
     targetRevision: master
     path: vault-personal/manifests
   destination:
     server: https://kubernetes.default.svc
-    namespace: personal
+    namespace: vault
   syncPolicy:
     automated:
       prune: true

@@ -40,6 +40,10 @@ spec:
       containers:
         - name: vault
           image: hashicorp/vault:1.16
+          securityContext:
+            capabilities:
+              add:
+                - IPC_LOCK
           ports:
             - containerPort: 8200
           env:
