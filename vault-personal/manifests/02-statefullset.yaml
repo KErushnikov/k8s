@@ -1,4 +1,3 @@
-# 02-vault-statefulset-fixed-pvc.yaml
 apiVersion: apps/v1
 kind: StatefulSet
 metadata:
@@ -16,6 +15,15 @@ spec:
     spec:
       securityContext:
         fsGroup: 1005
+        runAsUser: 1005
+        runAsGroup: 1005
+      initContainers:
+        - name: fix-permissions
+          image: busybox
+          command: ["sh", "-c", "chown -R 1005:1005 /vault/data"]
+          volumeMounts:
+            - name: vault-data
+              mountPath: /vault/data
       containers:
         - name: vault
           image: hashicorp/vault:1.16
@@ -42,8 +50,6 @@ spec:
             - name: vault-data
               mountPath: /vault/data
           securityContext:
-            runAsUser: 1005
-            runAsGroup: 1005
             allowPrivilegeEscalation: false
       volumes:
         - name: vault-data
