@@ -44,24 +44,13 @@ spec:
       containers:
       - name: vault
         image: hashicorp/vault:1.20
+        args:
+          - "server"
+          - "-config=/vault/config/vault.hcl"
         ports:
           - containerPort: 8200
             name: vault-port
         env:
-          - name: VAULT_LOCAL_CONFIG
-            value: |
-              ui = true
-              disable_mlock = true
-              api_addr = "https://vault.k.erushnikov.ru"
-
-              listener "tcp" {
-                address = "0.0.0.0:8200"
-                tls_disable = 1
-              }
-
-              storage "file" {
-                path = "/vault/data"
-              }
           - name: SKIP_CHOWN
             value: "true"
           - name: SKIP_SETCAP
