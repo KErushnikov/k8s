@@ -24,6 +24,8 @@ spec:
               if [ ! -f /vault/data/restored ]; then
                 echo "[*] Extracting Vault backup..." && \
                 tar -xzf /backup/vault_file_backup.tar.gz -C /vault/data && \
+                echo "[*] Fixing permissions..." && \
+                chown -R 100:100 /vault/data && \
                 touch /vault/data/restored && \
                 echo "[*] Done."
               else
