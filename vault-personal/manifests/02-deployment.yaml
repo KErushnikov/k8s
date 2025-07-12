@@ -25,11 +25,14 @@ spec:
                 echo "[*] Extracting Vault backup..." && \
                 tar -xzf /backup/vault_file_backup.tar.gz -C /vault/data && \
                 echo "[*] Fixing permissions..." && \
-                chown -R 100:100 /vault/data && \
+                chown -R 1005:1005 /vault/data && \
                 touch /vault/data/restored && \
                 echo "[*] Done."
               else
                 echo "[*] Backup already restored."
+                echo "[*] Fixing ownership to 1005:1005..." && \
+                chown -R 1005:1005 /vault/data && \
+                echo "[*] Done."
               fi
           volumeMounts:
             - name: vault-data
