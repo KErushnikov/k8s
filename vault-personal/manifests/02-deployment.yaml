@@ -13,7 +13,7 @@ spec:
         app: vault
     spec:
       securityContext:
-        fsGroup: 100
+        fsGroup: 1005
       initContainers:
         - name: restore-vault
           image: alpine
