@@ -41,10 +41,11 @@ spec:
             runAsUser: 0
             runAsGroup: 0
             runAsNonRoot: false
-
       containers:
         - name: vault
           image: hashicorp/vault:1.20
+          args:
+            - "server"
           ports:
             - containerPort: 8200
               name: vault-port
@@ -61,9 +62,6 @@ spec:
             runAsUser: 1005
             runAsGroup: 1005
             allowPrivilegeEscalation: false
-            capabilities:
-              add: [ "SETFCAP" ]
-
       volumes:
         - name: vault-backup
           hostPath:
