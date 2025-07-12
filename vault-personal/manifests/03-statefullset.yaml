@@ -46,6 +46,7 @@ spec:
           image: hashicorp/vault:1.20
           args:
             - "server"
+            - "-config=/vault/config/local.json"
           ports:
             - containerPort: 8200
               name: vault-port
