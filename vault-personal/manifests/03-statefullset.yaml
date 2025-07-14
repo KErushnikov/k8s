@@ -58,7 +58,7 @@ spec:
           - name: SKIP_SETCAP
             value: "true"
           - name: VAULT_ADDR
-            value: "https:///vault.k.erushnikov.ru"
+            value: "https://vault.k.erushnikov.ru"
         volumeMounts:
           - name: vault-data
             mountPath: /vault/data
