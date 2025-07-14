@@ -50,8 +50,7 @@ victoria-metrics-agent:
       memory: 600Mi
 
   persistence:
-    enabled: true
-    existingClaim: vm-data-pvc
+    enabled: false
 
   config:
     global:

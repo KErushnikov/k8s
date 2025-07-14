@@ -10,18 +10,16 @@ victoria-metrics-single:
       selfScrapeInterval: "15s"
       loggerLevel: "INFO"
     persistentVolume:
-      enabled: false  # disables chart-generated PVC
-    extraVolumes:
-      - name: vm-data
-        persistentVolumeClaim:
-          claimName: vm-data-pvc
+      enabled: true  # disables chart-generated PVC
+      storageClass: local-path
+      size: 2Gi
     resources:
       requests:
         cpu: 200m
         memory: 500Mi
       limits:
-        cpu: "1"
-        memory: 2Gi
+        cpu: "500m"
+        memory: 1Gi
     ingress:
       enabled: true
       annotations:
