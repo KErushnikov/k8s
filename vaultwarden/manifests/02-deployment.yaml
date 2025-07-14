@@ -53,5 +53,5 @@ spec:
             claimName: vaultwarden-data
         - name: backup
           hostPath:
-            path: /data/PVC/vaultwarden   # ✅ directory, not file
+            path: /PVC/vaultwarden   # ✅ directory, not file
             type: Directory
