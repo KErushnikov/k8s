@@ -13,6 +13,7 @@ victoria-metrics-single:
       enabled: true  # disables chart-generated PVC
       storageClass: local-path
       size: 2Gi
+      mountPath: /PVC/vm
     resources:
       requests:
         cpu: 200m
