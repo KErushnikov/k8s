@@ -1,15 +1,14 @@
----
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: minioconsole
   namespace: minio
-  # ## Fix to new versions of ingress controllers
-  # annotations:
-  #   kubernetes.io/ingress.class: "system-ingress"
 spec:
-  ## Fix to new versions of ingress controllers
-  ingressClassName: "traefik"
+  ingressClassName: traefik
+  tls:
+    - hosts:
+        - vault.k.erushnikov.ru
+      secretName: wildcard-k-erushnikov-ru
   rules:
     - host: "minio.k.erushnikov.ru"
       http:
@@ -18,6 +17,6 @@ spec:
             pathType: Prefix
             backend:
               service:
-                name: console
+                name: mi
                 port:
-                  name: http
+                  name: console
