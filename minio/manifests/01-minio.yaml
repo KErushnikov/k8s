@@ -147,7 +147,7 @@ spec:
             - name: MINIO_SKIP_CLIENT
               value: "yes"
             - name: MINIO_BROWSER
-              value: "off"
+              value: "on"
             - name: MINIO_PROMETHEUS_AUTH_TYPE
               value: "public"
           ports:
