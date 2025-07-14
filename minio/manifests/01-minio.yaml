@@ -120,7 +120,7 @@ spec:
             runAsUser: 1001
           args:
             - server
-            - /data-{0..1}
+            - /data-{0...1}
             - --console-address
             - ":9001"
           env:
