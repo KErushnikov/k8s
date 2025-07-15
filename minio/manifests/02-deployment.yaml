@@ -36,16 +36,16 @@ spec:
             - --console-address
             - ":9001"
           env:
-            - name: BITNAMI_DEBUG
-              value: "false"
-            - name: MINIO_DISTRIBUTED_MODE_ENABLED
-              value: "yes"
-            - name: MINIO_DISTRIBUTED_NODES
-              value: "mi-{0...1}.mi-headless.minio.svc.cluster.local/data-{0...1}/data"
-            - name: MINIO_SCHEME
-              value: "http"
-            - name: MINIO_FORCE_NEW_KEYS
-              value: "no"
+            # - name: BITNAMI_DEBUG
+            #   value: "false"
+            # - name: MINIO_DISTRIBUTED_MODE_ENABLED
+            #   value: "yes"
+            # - name: MINIO_DISTRIBUTED_NODES
+            #   value: "mi-{0...1}.mi-headless.minio.svc.cluster.local/data-{0...1}/data"
+            # - name: MINIO_SCHEME
+            #   value: "http"
+            # - name: MINIO_FORCE_NEW_KEYS
+            #   value: "no"
             - name: MINIO_ROOT_USER # MINIO_ACCESS_KEY
               valueFrom:
                 secretKeyRef:
