@@ -32,7 +32,7 @@ spec:
           imagePullPolicy: "IfNotPresent"
           args:
             - server
-            - "http://mi-{0...1}.mi-headless.minio.svc.cluster.local/data-{0...1}/data"
+            - http://mi-{0...1}.mi-headless.minio.svc.cluster.local/data-{0...1}
             - --console-address
             - ":9001"
           env:
