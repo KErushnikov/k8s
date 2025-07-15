@@ -17,6 +17,6 @@ spec:
             pathType: Prefix
             backend:
               service:
-                name: mi
+                name: console
                 port:
-                  name: console
+                  name: http
