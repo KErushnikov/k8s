@@ -1,67 +1,67 @@
----
-apiVersion: v1
-kind: Service
-metadata:
-  name: console
-  labels:
-    name: console
-spec:
-  ports:
-    - port: 9001
-      name: http
-  selector:
-    app: console
----
-apiVersion: apps/v1
-kind: Deployment
-metadata:
-  name: console
-spec:
-  replicas: 1
-  selector:
-    matchLabels:
-      app: console
-  template:
-    metadata:
-      labels:
-        app: console
-    spec:
-      containers:
-        - name: console
-          image: quay.io/minio/minio:RELEASE.2025-06-13T11-33-47Z
-          imagePullPolicy: "IfNotPresent"
-          args:
-            - server
-            - http://mi-0.mi-headless.minio.svc.cluster.local:9000
-            - --console-address
-            - ":9001"
-          env:
-            # - name: BITNAMI_DEBUG
-            #   value: "false"
-            # - name: MINIO_DISTRIBUTED_MODE_ENABLED
-            #   value: "yes"
-            # - name: MINIO_DISTRIBUTED_NODES
-            #   value: "mi-{0...1}.mi-headless.minio.svc.cluster.local/data-{0...1}/data"
-            # - name: MINIO_SCHEME
-            #   value: "http"
-            # - name: MINIO_FORCE_NEW_KEYS
-            #   value: "no"
-            - name: MINIO_ROOT_USER # MINIO_ACCESS_KEY
-              valueFrom:
-                secretKeyRef:
-                  name: mi
-                  key: user
-            - name: MINIO_ROOT_PASSWORD # MINIO_SECRET_KEY
-              valueFrom:
-                secretKeyRef:
-                  name: mi
-                  key: password
-            - name: MINIO_SKIP_CLIENT
-              value: "yes"
-            - name: MINIO_BROWSER
-              value: "on"
-            - name: MINIO_PROMETHEUS_AUTH_TYPE
-              value: "public"
-          ports:
-            - containerPort: 9001
-              name: http
+# ---
+# apiVersion: v1
+# kind: Service
+# metadata:
+#   name: console
+#   labels:
+#     name: console
+# spec:
+#   ports:
+#     - port: 9001
+#       name: http
+#   selector:
+#     app: console
+# ---
+# apiVersion: apps/v1
+# kind: Deployment
+# metadata:
+#   name: console
+# spec:
+#   replicas: 1
+#   selector:
+#     matchLabels:
+#       app: console
+#   template:
+#     metadata:
+#       labels:
+#         app: console
+#     spec:
+#       containers:
+#         - name: console
+#           image: quay.io/minio/minio:RELEASE.2025-06-13T11-33-47Z
+#           imagePullPolicy: "IfNotPresent"
+#           args:
+#             - server
+#             - http://mi-0.mi-headless.minio.svc.cluster.local:9000
+#             - --console-address
+#             - ":9001"
+#           env:
+#             # - name: BITNAMI_DEBUG
+#             #   value: "false"
+#             # - name: MINIO_DISTRIBUTED_MODE_ENABLED
+#             #   value: "yes"
+#             # - name: MINIO_DISTRIBUTED_NODES
+#             #   value: "mi-{0...1}.mi-headless.minio.svc.cluster.local/data-{0...1}/data"
+#             # - name: MINIO_SCHEME
+#             #   value: "http"
+#             # - name: MINIO_FORCE_NEW_KEYS
+#             #   value: "no"
+#             - name: MINIO_ROOT_USER # MINIO_ACCESS_KEY
+#               valueFrom:
+#                 secretKeyRef:
+#                   name: mi
+#                   key: user
+#             - name: MINIO_ROOT_PASSWORD # MINIO_SECRET_KEY
+#               valueFrom:
+#                 secretKeyRef:
+#                   name: mi
+#                   key: password
+#             - name: MINIO_SKIP_CLIENT
+#               value: "yes"
+#             - name: MINIO_BROWSER
+#               value: "on"
+#             - name: MINIO_PROMETHEUS_AUTH_TYPE
+#               value: "public"
+#           ports:
+#             - containerPort: 9001
+#               name: http

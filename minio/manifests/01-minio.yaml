@@ -33,6 +33,9 @@ spec:
     - name: minio
       port: 9000
       targetPort: minio
+    - name: console
+      port: 9001
+      targetPort: console
   selector:
     app.kubernetes.io/name: mi
     app.kubernetes.io/instance: mi
@@ -118,6 +121,8 @@ spec:
           args:
             - server
             - /data-{0...1}
+            - --console-address
+            - ":9001"
           env:
             - name: BITNAMI_DEBUG
               value: "false"
@@ -142,13 +147,15 @@ spec:
             - name: MINIO_SKIP_CLIENT
               value: "yes"
             - name: MINIO_BROWSER
-              value: "off"
+              value: "on"
             - name: MINIO_PROMETHEUS_AUTH_TYPE
               value: "public"
           ports:
             - name: minio
               containerPort: 9000
               protocol: TCP
+            - name: console
+              containerPort: 9001
           livenessProbe:
             httpGet:
               path: /minio/health/live

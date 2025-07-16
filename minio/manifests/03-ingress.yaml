@@ -1,13 +1,15 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: minioconsole
+  name: minio-console
   namespace: minio
+  annotations:
+    traefik.ingress.kubernetes.io/service.sticky.cookie: "true"
 spec:
   ingressClassName: traefik
   tls:
     - hosts:
-        - vault.k.erushnikov.ru
+        - minio.k.erushnikov.ru
       secretName: wildcard-k-erushnikov-ru
   rules:
     - host: "minio.k.erushnikov.ru"
@@ -17,6 +19,6 @@ spec:
             pathType: Prefix
             backend:
               service:
-                name: console
+                name: mi
                 port:
-                  name: http
+                  name: console
