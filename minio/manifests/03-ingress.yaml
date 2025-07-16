@@ -1,7 +1,7 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: minio-console
+  name: minio
   namespace: minio
   annotations:
     traefik.ingress.kubernetes.io/service.sticky.cookie: "true"
@@ -19,6 +19,6 @@ spec:
             pathType: Prefix
             backend:
               service:
-                name: mi
+                name: mi-headless
                 port:
-                  name: console
+                  name: minio
