@@ -1,0 +1,27 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+resources:
+- ../../base
+- grafana-ingress.yaml
+
+helmCharts:
+- includeCRDs: true
+  name: kube-prometheus-stack
+  namespace: monitoring
+  releaseName: kube-prometheus-stack
+  repo: https://prometheus-community.github.io/helm-charts
+  version: 75.15.2
+  valuesFile: ../../base/values.yaml
+  additionalValuesFiles:
+    - values.yaml
+- includeCRDs: true
+  name: grafana
+  namespace: monitoring
+  releaseName: grafana
+  repo: https://grafana.github.io/helm-charts
+  valuesFile: grafana-values.yaml
+  version: 9.3.0
+
+patches:
+- path: ../../base/crd-argocd-replace.yaml

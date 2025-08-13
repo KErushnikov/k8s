@@ -1,0 +1,33 @@
+nameOverride: prometheus
+namespaceOverride: monitoring
+
+crds:
+  enabled: true
+  upgradeJob:
+    enabled: true
+
+defaultRules:
+  create: false
+
+alertmanager:
+  enabled: false
+
+grafana:
+  enabled: false
+
+prometheus-windows-exporter:
+  enabled: false
+
+prometheus-node-exporter:
+  namespaceOverride: monitoring
+
+kube-state-metrics:
+  namespaceOverride: monitoring
+
+prometheus:
+  prometheusSpec:
+    retention: 6h
+    enableAdminAPI: false
+    serviceMonitorSelectorNilUsesHelmValues: false
+    podMonitorSelectorNilUsesHelmValues: false
+    ruleSelectorNilUsesHelmValues: false

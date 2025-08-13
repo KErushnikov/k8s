@@ -1,0 +1,38 @@
+# Repository Structure
+
+```
+.
+├── apps/                        # Application-specific deployments
+│   ├── argocd/                  # ArgoCD ingress and TLS setup
+│   ├── cert-manager/            # Cert-manager setup and webhook patches
+│   ├── example/                 # Example workload with per-env overlays
+│   └── projects/                # ArgoCD project definitions via Helm
+├── helm/                       # External reusable Helm charts (as submodule or vendored)
+├── root.yaml                   # ApplicationSet for root app discovery
+└── README.md                   # This documentation
+```
+
+# How to Use This Repository
+
+To manage ArgoCD, Cert-manager, and projects, navigate to the following directories:
+
+- `apps/argocd/`
+- `apps/cert-manager/`
+- `apps/projects/`
+
+# Deployment Workflow
+
+## Add New Components
+
+Create the necessary directory structure for new components:
+
+```bash
+mkdir -p apps/<component>/base apps/<component>/overlays/{infra,dev,stage,prod}
+```
+
+# Example Component Walkthrough
+
+Here is an example with the Redis component:
+
+- Base manifests are located in `apps/redis/base`
+- Environment-specific overlays are located in `apps/redis/overlays/infra`

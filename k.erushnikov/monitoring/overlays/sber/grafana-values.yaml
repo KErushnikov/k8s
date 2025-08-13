@@ -1,0 +1,89 @@
+persistence:
+  enabled: true
+  storageClassName: local-path
+  accessModes:
+    - ReadWriteOnce
+  size: 1Gi
+
+admin:
+  existingSecret: grafana-admin-credentials
+  userKey: admin-user
+  passwordKey: admin-password
+
+datasources:
+  datasources.yaml:
+    apiVersion: 1
+    datasources:
+      - name: Prometheus
+        type: prometheus
+        access: proxy
+        url: http://kube-prometheus-stack-prometheus:9090/
+        isDefault: true
+        editable: true
+
+dashboardProviders:
+  dashboardproviders.yaml:
+    apiVersion: 1
+    providers:
+      - name: 'default'
+        orgId: 1
+        folder: ''
+        type: file
+        disableDeletion: false
+        updateIntervalSeconds: 30
+        options:
+          path: /var/lib/grafana/dashboards/default
+
+dashboards:
+  default:
+    kube-prometheus-stack:
+      gnetId: 1621
+      revision: 1
+      datasource: Prometheus
+    nodes:
+      gnetId: 1860
+      revision: 31
+      datasource: Prometheus
+    k8s-addons-prometheus:
+      gnetId: 19105
+      revision: 1
+      datasource: Prometheus
+    k8s-addons-trivy-operator:
+      gnetId: 16337
+      revision: 1
+      datasource: Prometheus
+    k8s-system-api-server:
+      gnetId: 15761
+      revision: 1
+      datasource: Prometheus
+    k8s-system-coredns:
+      gnetId: 15762
+      revision: 1
+      datasource: Prometheus
+    k8s-views-global:
+      gnetId: 15757
+      revision: 1
+      datasource: Prometheus
+    k8s-views-namespaces:
+      gnetId: 15758
+      revision: 1
+      datasource: Prometheus
+    k8s-views-nodes:
+      gnetId: 15759
+      revision: 1
+      datasource: Prometheus
+    k8s-views-pods:
+      gnetId: 15760
+      revision: 1
+      datasource: Prometheus
+
+env:
+  GF_SECURITY_DISABLE_INITIAL_ADMIN_CREATION: false
+
+resources:
+  limits:
+    cpu: 200m
+    memory: 256Mi
+  requests:
+    cpu: 100m
+    memory: 128Mi

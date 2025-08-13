@@ -1,0 +1,22 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: grafana
+  namespace: monitoring
+spec:
+  ingressClassName: traefik
+  tls:
+  - hosts:
+      - grafana.k.erushnikov.ru
+    secretName: wildcard-k-erushnikov-ru
+  rules:
+  - host: grafana.k.erushnikov.ru
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: grafana
+            port:
+              number: 80

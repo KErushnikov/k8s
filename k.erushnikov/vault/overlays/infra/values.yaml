@@ -1,0 +1,59 @@
+fullnameOverride: vault
+nameOverride: vault
+server:
+  standalone:
+    enabled: false
+  service:
+    publishNotReadyAddresses: false
+  extraSecretEnvironmentVars:
+    - envName: TENANT_ID
+      secretName: vault-azure-unseal
+      secretKey: tenant_id
+    - envName: VAULT_NAME
+      secretName: vault-azure-unseal
+      secretKey: vault_name
+    - envName: KEY_NAME
+      secretName: vault-azure-unseal
+      secretKey: key_name
+    - envName: CLIENT_ID
+      secretName: vault-azure-unseal
+      secretKey: client_id
+    - envName: CLIENT_SECRET
+      secretName: vault-azure-unseal
+      secretKey: client_secret
+  extraEnvironmentVars:
+    VAULT_JSON_CONFIG: "seal \"azurekeyvault\" {\n  tenant_id     = \"PLACEHOLDER_TENANT_ID\"\n  vault_name    = \"PLACEHOLDER_VAULT_NAME\"\n  key_name      = \"PLACEHOLDER_KEY_NAME\"\n  client_id     = \"PLACEHOLDER_CLIENT_ID\"\n  client_secret = \"PLACEHOLDER_CLIENT_SECRET\"\n}"
+  
+  postStart:
+    - /bin/sh
+    - -c
+    - echo $VAULT_JSON_CONFIG > /home/vault/storage_config.json && sed -ie "s/PLACEHOLDER_TENANT_ID/$TENANT_ID/g" /home/vault/storage_config.json && sed -ie "s/PLACEHOLDER_VAULT_NAME/$VAULT_NAME/g" /home/vault/storage_config.json && sed -ie "s/PLACEHOLDER_KEY_NAME/$KEY_NAME/g" /home/vault/storage_config.json && sed -ie "s/PLACEHOLDER_CLIENT_ID/$CLIENT_ID/g" /home/vault/storage_config.json && sed -ie "s/PLACEHOLDER_CLIENT_SECRET/$CLIENT_SECRET/g" /home/vault/storage_config.json
+
+  extraArgs: "-config=/home/vault/storage_config.json"
+
+  ha:
+    enabled: true
+    replicas: 3
+
+    config: |
+      ui = true
+
+      listener "tcp" {
+        tls_disable = 1
+        address = "[::]:{{ .Values.server.service.port }}"
+        cluster_address = "[::]:8201"
+      }
+      storage "consul" {
+        path = "vault"
+        address = "consul-consul-server.consul:8500"
+      }
+
+      service_registration "kubernetes" {}
+
+  resources:
+    limits:
+      cpu: 100m
+      memory: 256Mi
+    requests:
+      cpu: 50m
+      memory: 128Mi
