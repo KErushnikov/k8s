@@ -5,8 +5,6 @@ metadata:
 spec:
   accessModes:
     - ReadWriteOnce
-  nodeSelector:
-    kubernetes.io/hostname: k.erushnikov.ru
   storageClassName: local-path
   resources:
     requests:
