@@ -13,7 +13,7 @@ spec:
         app: vaultwarden
     spec:
       nodeSelector:
-        k3s.io/hostname: k.erushnikov.ru
+        kubernetes.io/hostname: k.erushnikov.ru
       initContainers:
         - name: restore-data
           image: alpine
