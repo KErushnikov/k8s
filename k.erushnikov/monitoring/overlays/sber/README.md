@@ -6,7 +6,7 @@
 ```bash
 kubectl create ns monitoring
 kubectl create secret generic grafana-admin-credentials -n monitoring \
---from-literal=admin-user=admin-user \
---from-literal=admin-password=password \
+--from-literal=admin-user=k.erushnikov \
+--from-literal=admin-password=ZH7eeeFVpEB$zpb9s%aqEEPqhdxUqWgr
 ```
 
