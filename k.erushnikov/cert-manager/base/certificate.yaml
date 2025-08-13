@@ -1,0 +1,15 @@
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: wildcard-k-erushnikov-ru
+  namespace: cert-manager
+spec:
+  # Setup secret name
+  secretName: wildcard-k-erushnikov-ru
+  commonName: "*.k.erushnikov.ru"
+  issuerRef:
+    name: letsencrypt-prod
+    kind: ClusterIssuer
+  # Setup names of zones
+  dnsNames:
+  - "*.k.erushnikov.ru"
