@@ -3,10 +3,10 @@ kind: PersistentVolumeClaim
 metadata:
   name: vaultwarden-data
 spec:
-  nodeSelector:
-    kubernetes.io/hostname: k.erushnikov.ru
   accessModes:
     - ReadWriteOnce
+  nodeSelector:
+    kubernetes.io/hostname: k.erushnikov.ru
   storageClassName: local-path
   resources:
     requests:
