@@ -5,6 +5,9 @@ resources:
 - ../../base
 - https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml
 - cmp-plugin.yaml
+- vault-configuration.yaml
+- test-secret.yaml
+- test-secret2.yaml
 
 patches:
 - path: argocd-repo-server.yaml
